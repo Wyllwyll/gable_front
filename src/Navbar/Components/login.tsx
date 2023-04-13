@@ -2,6 +2,7 @@ import { useContext, useRef } from "react";
 import { UserContext } from "../../context/UserContext";
 import { BASE_URL } from "../../constant/url";
 import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export function LoginForm() {
 
@@ -54,6 +55,8 @@ export function LoginForm() {
                     if (data.data) {
                         emailRef.current!.value = ' ';
                         passwordRef.current!.value = ' ';
+                        console.log(data.data);
+                        
                         setUser(data.data);
                         setTimeout(() => {
                             document.getElementById('close')?.click();
@@ -73,11 +76,6 @@ export function LoginForm() {
     };
 
 
-
-
-
-
-
     return (
         <>
             <div
@@ -87,7 +85,7 @@ export function LoginForm() {
                 tabIndex={-1}
             >
                 <div className="modal-dialog modal-dialog-centered  ">
-                    <div className=" modal-content modal-content-login login-color ">
+                    <div className=" modal-content modal-content-login ">
                         <div className="modal-header">
                             <h5 className="modal-title">Identifiants de Connexion</h5>
                             <button
