@@ -55,8 +55,8 @@ export function LoginForm() {
                     if (data.data) {
                         emailRef.current!.value = ' ';
                         passwordRef.current!.value = ' ';
-                        console.log(data.data);
-                        
+
+
                         setUser(data.data);
                         setTimeout(() => {
                             document.getElementById('close')?.click();

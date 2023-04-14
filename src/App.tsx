@@ -4,28 +4,33 @@ import './App.css';
 import { Navbar } from './Navbar/Components/Navbar';
 import { UserContext } from './context/UserContext';
 import { TUser } from './Navbar/types/TUser';
-import { visitor } from './Navbar/types/TVisitor';
+import { DEFAULT_USER } from './constant/TVisitor';
 import { LoginForm } from './Navbar/Components/login';
 import { RegisterForm } from './Navbar/Components/Register';
 
 function App() {
-  const [user, setUser] = useState<TUser>(visitor);
+  const [user, setUser] = useState<TUser>(DEFAULT_USER);
+  const [page, setPage] = useState<
+    'Configurateur'
+  >('Configurateur');
 
 
 
   return (
     <div className="App">
-      <UserContext.Provider value={{ user, setUser }}></UserContext.Provider>
+      <UserContext.Provider value={{ user, setUser }}>
 
-      <header className="App-header">
-        <Navbar />
-        <div>Hello World</div>
-      </header>
+        <header className="App-header">
+          <Navbar setPage={setPage} page={page} />
 
-      <main className="container-fluid">
-        <LoginForm />
-        <RegisterForm />
-      </main>
+        </header>
+
+        <main className="container-fluid">
+          <LoginForm />
+          <RegisterForm />
+          <div>Hello World</div>
+        </main>
+      </UserContext.Provider>
 
     </div>
   );

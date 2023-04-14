@@ -4,13 +4,14 @@ import { BASE_URL } from "../../constant/url";
 
 export function RegisterForm() {
     const [message, setMessage] = useState<string[]>(['']);
+
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
     const passVerifRef = useRef<HTMLInputElement>(null);
     const notifySuccess = (msg: string,) => toast.success(msg,
         {
             position: "bottom-right",
-            autoClose: 1500,
+            autoClose: 1200,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
@@ -21,7 +22,7 @@ export function RegisterForm() {
     const notifyError = (msg: string,) => toast.error(msg,
         {
             position: "bottom-right",
-            autoClose: 3000,
+            autoClose: 1200,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
@@ -29,6 +30,7 @@ export function RegisterForm() {
             progress: undefined,
             theme: "light",
         });
+
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -111,7 +113,7 @@ export function RegisterForm() {
                         </div>
 
                         <div className="modal-footer d-flex justify-content-center">
-                            <button type="submit" className="btn btn-green"> Valider</button>
+                            <button type="submit" className="btn"> Valider</button>
                         </div>
                     </form>
                 </div>

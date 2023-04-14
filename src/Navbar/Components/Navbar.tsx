@@ -1,15 +1,22 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
+import { DEFAULT_USER } from "../../constant/TVisitor";
 
 
-export function Navbar() {
+export function Navbar(props: {
+    setPage: React.Dispatch<
+        React.SetStateAction<'Configurateur'>
+    >;
+    page: string;
+}) {
 
-    const { user } = useContext(UserContext);
+    const userData = useContext(UserContext);
 
 
     return (
         <nav className="navbar navbar-expand-lg ">
             <div className="container-fluid">
+
 
                 <button className="navbar-toggler"
                     type="button"
@@ -21,9 +28,10 @@ export function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
+
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        {user.access_lvl < 1 && (
+                        {userData.user.access_lvl < 1 ? (
                             <>
                                 <li className="nav-item">
                                     <a className="nav-link active"
@@ -49,21 +57,30 @@ export function Navbar() {
                                     </a>
                                 </li>
                             </>
+                        ) : (
+                            ''
                         )}
 
-                        {user.access_lvl > 0 && (
+                        {userData.user.access_lvl > 0 ? (
 
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="/#">
-                                    {' '}
                                     Profil
                                 </a>
 
-                                <a className="nav-link active" aria-current="page" href="/#">
-                                    {' '}
+                                <a className="nav-link active"
+                                    aria-current="page"
+                                    href="/#"
+                                    type="button"
+                                    onClick={() => {
+                                        userData.setUser(DEFAULT_USER);
+                                        props.setPage('Configurateur');
+                                    }}>
                                     Deconnexion
                                 </a>
                             </li>
+                        ) : (
+                            ''
                         )}
                     </ul>
                 </div>
