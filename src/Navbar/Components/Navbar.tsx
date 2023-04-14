@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { DEFAULT_USER } from "../../constant/TVisitor";
 
@@ -14,61 +14,72 @@ export function Navbar(props: {
 
 
     return (
-        <nav className="navbar navbar-expand-lg ">
-            <div className="container-fluid">
+
+        <nav className="navbar navbar-expand-lg color-navbar">
+
+            <button className="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
 
 
-                <button className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
+                    {userData.user.access_lvl < 1 ? (
+                        <>
+                            <li className="nav-item">
+                                <a className="nav-link "
+                                    href="/#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#loginModal"
+                                    id="loginButton">
+                                    {' '}
+                                    Se Connecter
+                                </a>
+                            </li>
 
 
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        {userData.user.access_lvl < 1 ? (
-                            <>
-                                <li className="nav-item">
-                                    <a className="nav-link active"
-                                        href="/#"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#loginModal"
-                                        id="loginButton">
-                                        {' '}
-                                        Se Connecter
-                                    </a>
-                                </li>
-
-
-
-                                <li className="nav-item">
-                                    <a className="nav-link"
-                                        href="#"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#registerModal"
-                                        id="registerButton">
-                                        {' '}
-                                        S'enregistrer
-                                    </a>
-                                </li>
-                            </>
-                        ) : (
-                            ''
-                        )}
-
-                        {userData.user.access_lvl > 0 ? (
 
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/#">
+                                <a className="nav-link"
+                                    href="/#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#registerModal"
+                                    id="registerButton">
+                                    {' '}
+                                    S'enregistrer
+                                </a>
+                            </li>
+
+                            <li className="nav-item">
+                                <a className="nav-link "
+                                    aria-current="page"
+                                    href="/#">
+                                    Pre-Build
+                                </a>
+                            </li>
+                        </>
+                    ) : (
+                        ''
+                    )}
+
+                    {userData.user.access_lvl > 0 ? (
+                        <>
+                            <li className="nav-item">
+                                <a className="nav-link "
+                                    aria-current="page"
+                                    href="/#">
                                     Profil
                                 </a>
+                            </li>
 
-                                <a className="nav-link active"
+                            <li className="nav-item">
+                                <a className="nav-link "
                                     aria-current="page"
                                     href="/#"
                                     type="button"
@@ -79,12 +90,23 @@ export function Navbar(props: {
                                     Deconnexion
                                 </a>
                             </li>
-                        ) : (
-                            ''
-                        )}
-                    </ul>
-                </div>
+
+                            <li className="nav-item">
+                                <a className="nav-link "
+                                    aria-current="page"
+                                    href="/#">
+                                    Pre-Build
+                                </a>
+                            </li>
+                        </>
+                    ) : (
+                        ''
+                    )}
+                </ul>
             </div>
+
         </nav>
+
+
     )
 }
