@@ -8,8 +8,8 @@ import { TUser } from './Navbar/types/TUser';
 import { DEFAULT_USER } from './constant/TVisitor';
 import { LoginForm } from './Navbar/Components/login';
 import { RegisterForm } from './Navbar/Components/Register';
-import ConfigurateuGauche from './Configurateur/Components/Configurateur gauche';
-import ConfigurateurGauche from './Configurateur/Components/Configurateur gauche';
+import ConfigurateurGauche from './Configurateur/Components/Configurateur_gauche';
+import ConfigurateurDroit from './Configurateur/Components/configurateur_droit';
 
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
@@ -36,7 +36,11 @@ function App() {
 
           </main>
         </div>
-        <div className='col color-yellow '>
+
+        <div className='col color-yellow'>
+          <div className="pc-backgound">
+            <ConfigurateurDroit />
+          </div>
 
         </div>
       </UserContext.Provider>

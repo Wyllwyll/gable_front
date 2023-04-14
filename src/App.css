@@ -11,3 +11,11 @@
 .App{
 height: 100vh;
 }
+
+
+.pc-backgound{
+    background-image: url(/upload/pcFond.svg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 100%;
+}
