@@ -10,6 +10,7 @@ import { LoginForm } from './Navbar/Components/login';
 import { RegisterForm } from './Navbar/Components/Register';
 import ConfigurateurGauche from './Configurateur/Components/Configurateur_gauche';
 import ConfigurateurDroit from './Configurateur/Components/configurateur_droit';
+import ModalChoix from './Configurateur/Components/modal_choix';
 
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
@@ -40,6 +41,7 @@ function App() {
         <div className='col color-yellow'>
           <div className="pc-backgound">
             <ConfigurateurDroit />
+            <ModalChoix title={''}/>
           </div>
 
         </div>
