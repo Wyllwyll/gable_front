@@ -1,3 +1,5 @@
+import { Ttypes } from "./Ttype"
+
 export type Tcomposants={
     name: "string",
     description: "string",
@@ -17,6 +19,6 @@ export type Tcomposants={
     ssd_sata: number,
     hdd_sata: number,
     pci: number,
-    typeId: number
+    types: Ttypes,
     
 }

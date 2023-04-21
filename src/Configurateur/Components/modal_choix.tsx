@@ -1,14 +1,22 @@
 import { Tcomposants } from "./tipage/Tcomposants";
+import { Tselection } from "./tipage/Tselection";
 
 
-export default function ModalChoix(props: { modalTitle: string, types: Tcomposants[] }) {
+
+export default function ModalChoix(props: { modalTitle: string, types: Tcomposants[], setSelections: React.Dispatch<React.SetStateAction<Tcomposants[]>>, selections: Tcomposants[]}) {
+
+    function setSelectedComponent(clickedElement: Tcomposants) {
+        const newSelection = [...props.selections];
+        newSelection[clickedElement.types.id] = clickedElement;
+        props.setSelections([...newSelection])
+    } 
 
 
     const tableau = (props.types.map((elm, key) =>
-        <tr key={key}>
+        <tr key={key} onClick={() =>setSelectedComponent(elm)}>
             <td>{elm.description}</td>
             <td>{elm.price}</td>
-        </tr>
+        </tr >
     ))
 
 
@@ -38,7 +46,7 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
 
                         <div className="modal-body">
 
-                            <table className="table ">
+                            <table className="table table-hover table-responsive ">
                                 <thead>
                                     <tr>
                                         <th scope="col">Désignation</th>
