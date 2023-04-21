@@ -1,18 +1,26 @@
 import { useState } from "react";
 import ModalChoix from "./modal_choix";
+import { BASE_URL } from "../../constant/url";
+import { Tcomposants } from "./tipage/Tcomposants";
+
+
 
 
 export default function ConfigurateurGauche() {
 
-
     const [modalTitle, setModalTitle] = useState<string>("");
+    const [types, setTypes] = useState<Tcomposants[]>([]);
+
 
     const handleButtonClick = (title: string) => {
         setModalTitle(title);
+
+        fetch(`${BASE_URL}/components/type/${title}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setTypes(data.data);
+            });
     };
-
-
-
 
     return (
         <>
@@ -58,7 +66,7 @@ export default function ConfigurateurGauche() {
                             data-bs-target="#choixModal"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            Ventirad 
+                            Ventirad
                         </button>
                     </h2>
                 </div>
@@ -73,7 +81,7 @@ export default function ConfigurateurGauche() {
                             data-bs-target="#choixModal"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            Memoire Vive RAM 
+                            Memoire Vive RAM
                         </button>
                     </h2>
                 </div>
@@ -88,7 +96,7 @@ export default function ConfigurateurGauche() {
                             data-bs-target="#choixModal"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            Carte Graphique 
+                            Carte Graphique
                         </button>
                     </h2>
                 </div>
@@ -103,7 +111,7 @@ export default function ConfigurateurGauche() {
                             data-bs-target="#choixModal"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            Boitier 
+                            Boitier
                         </button>
                     </h2>
                 </div>
@@ -118,7 +126,7 @@ export default function ConfigurateurGauche() {
                             data-bs-target="#choixModal"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            Alimentation 
+                            Alimentation
                         </button>
                     </h2>
                 </div>
@@ -133,7 +141,7 @@ export default function ConfigurateurGauche() {
                             data-bs-target="#choixModal"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            SSD 
+                            SSD
                         </button>
                     </h2>
                 </div>
@@ -148,7 +156,7 @@ export default function ConfigurateurGauche() {
                             data-bs-target="#choixModal"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            HDD 
+                            HDD
                         </button>
                     </h2>
                 </div>
@@ -163,7 +171,7 @@ export default function ConfigurateurGauche() {
                             data-bs-target="#choixModal"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            Carte-Son 
+                            Carte-Son
                         </button>
                     </h2>
                 </div>
@@ -178,12 +186,12 @@ export default function ConfigurateurGauche() {
                             data-bs-target="#choixModal"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            Carte-Reseau 
+                            Carte-Reseau
                         </button>
                     </h2>
                 </div>
             </div>
-            <ModalChoix title={modalTitle} />
+            <ModalChoix modalTitle={modalTitle} types={types} />
         </>
     )
 }

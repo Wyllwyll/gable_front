@@ -41,7 +41,6 @@ function App() {
         <div className='col color-yellow'>
           <div className="pc-backgound">
             <ConfigurateurDroit />
-            <ModalChoix title={''}/>
           </div>
 
         </div>

@@ -1,21 +1,24 @@
-
 .color-green {
     background-color: #426F6A;
 }
 
 
-.color-yellow{
+.color-yellow {
     background-color: #D9DBA9;
 }
 
-.App{
-height: 100vh;
+.color-orange {
+    background-color: #E6C24D;
+}
+
+.App {
+    height: 100vh;
 }
 
 
-.pc-backgound{
+.pc-backgound {
     background-image: url(/upload/pcFond.svg);
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: center;
     height: 100%;
 }
