@@ -1,14 +1,16 @@
+import { useContext } from "react";
 import { Tcomposants } from "./tipage/Tcomposants";
+import { selectionsContext } from "../../context/SelectionContext";
 
 
 
 
-export default function ModalChoix(props: { modalTitle: string, types: Tcomposants[], setSelections: React.Dispatch<React.SetStateAction<Tcomposants[]>>, selections: Tcomposants[]}) {
-
+export default function ModalChoix(props: { modalTitle: string, types: Tcomposants[]}) {
+    const {selections, setSelections} = useContext (selectionsContext)
     function setSelectedComponent(clickedElement: Tcomposants) {
-        const newSelection = [...props.selections];
+        const newSelection = [...selections];
         newSelection[clickedElement.types.id] = clickedElement;
-        props.setSelections([...newSelection])
+        setSelections([...newSelection])
     } 
 
 

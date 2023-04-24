@@ -7,6 +7,10 @@
     font-family: 'Rubik';
 }
 
+.color-lightgreen {
+    background-color: #557E74;
+}
+
 .color-green {
     background-color: #426F6A;
 }
@@ -37,7 +41,7 @@
     color: black
 }
 
-.color-red{
+.color-red {
     background-color: #ff0000;
 }
 
@@ -58,4 +62,3 @@
     border: 1px solid #E6C24D;
     padding: 5px;
 }
-

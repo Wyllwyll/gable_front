@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ModalChoix from "./modal_choix";
 import { BASE_URL } from "../../constant/url";
 import { Tcomposants } from "./tipage/Tcomposants";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import OrderAffichage from "./order_affichage";
+import { selectionsContext } from "../../context/SelectionContext";
+
+
 
 
 
@@ -12,7 +16,26 @@ export default function ConfigurateurGauche() {
 
     const [modalTitle, setModalTitle] = useState<string>("");
     const [types, setTypes] = useState<Tcomposants[]>([]);
-    const [selections, setSelections] = useState<Tcomposants[]>([])
+    const {selections, setSelections} = useContext (selectionsContext)
+    const [showClearButton, setShowClearButton] = useState(false);
+
+
+
+
+
+
+
+    useEffect(() => {
+        setShowClearButton(Boolean(selections[1]));
+    }, [selections]);
+
+    const handleClearButtonClick = () => {
+        setSelections([])
+    };
+
+
+
+
 
     const handleButtonClick = (title: string) => {
         setModalTitle(title);
@@ -22,6 +45,11 @@ export default function ConfigurateurGauche() {
             .then((data) => {
                 setTypes(data.data);
             });
+
+
+
+
+
     };
 
     return (
@@ -40,7 +68,16 @@ export default function ConfigurateurGauche() {
                             Processeur
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[1] && `${selections[1].description}  ${selections[1].price}`}  
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[1] && `${selections[1].description}  ${selections[1].price}`}
+
+                            {showClearButton && (
+                                <a
+                                    className="btn btn-sm btn-outline-danger ms-2"
+                                    onClick={handleClearButtonClick}
+                                >
+                                    <i className="bi bi-x-square"></i>
+                                </a>
+                            )}
                         </div>
                     </h2>
 
@@ -59,7 +96,17 @@ export default function ConfigurateurGauche() {
                             Carte-Mere
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1">{selections[2] && `${selections[2].description}  ${selections[2].price}`}</div>
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1">{selections[2] && `${selections[2].description}  ${selections[2].price}`}
+
+                            {showClearButton && (
+                                <a
+                                    className="btn btn-sm btn-outline-danger ms-2"
+                                    onClick={handleClearButtonClick}
+                                >
+                                    <i className="bi bi-x-square"></i>
+                                </a>
+                            )}
+                        </div>
                     </h2>
                 </div>
             </div>
@@ -216,7 +263,9 @@ export default function ConfigurateurGauche() {
                     </h2>
                 </div>
             </div>
-            <ModalChoix modalTitle={modalTitle} types={types} setSelections={setSelections} selections={selections} />
+            <ModalChoix modalTitle={modalTitle} types={types} />
+
+            
         </>
     )
 }

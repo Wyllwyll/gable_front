@@ -17,14 +17,14 @@ export function Navbar(props: {
 
         <nav className="navbar navbar-expand-lg color-navbar">
 
-            <button className="navbar-toggler"
+            <button className="navbar-toggler color-orange"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav"
                 aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon color-orange"></span>
             </button>
 
 
@@ -32,7 +32,7 @@ export function Navbar(props: {
                 <ul className="navbar-nav ">
                     {userData.user.access_lvl < 1 ? (
                         <>
-                            <li className="nav-item  ">
+                            <li className="nav-item me-4  ">
                                 <a className="nav-link color-txt-orange border-bottom border-warning "
                                     href="/#"
                                     data-bs-toggle="modal"
@@ -45,7 +45,7 @@ export function Navbar(props: {
 
 
 
-                            <li className="nav-item">
+                            <li className="nav-item me-4">
                                 <a className="nav-link color-txt-orange border-bottom border-warning"
                                     href="/#"
                                     data-bs-toggle="modal"
@@ -56,7 +56,7 @@ export function Navbar(props: {
                                 </a>
                             </li>
 
-                            <li className="nav-item">
+                            <li className="nav-item me-4">
                                 <a className="nav-link color-txt-orange border-bottom border-warning"
                                     aria-current="page"
                                     href="/#">
@@ -70,7 +70,7 @@ export function Navbar(props: {
 
                     {userData.user.access_lvl > 0 ? (
                         <>
-                            <li className="nav-item">
+                            <li className="nav-item me-4">
                                 <a className="nav-link color-txt-orange border-bottom border-warning "
                                     aria-current="page"
                                     href="/#">
@@ -78,7 +78,7 @@ export function Navbar(props: {
                                 </a>
                             </li>
 
-                            <li className="nav-item">
+                            <li className="nav-item me-4">
                                 <a className="nav-link color-txt-orange border-bottom border-warning "
                                     aria-current="page"
                                     href="/#"
@@ -91,7 +91,7 @@ export function Navbar(props: {
                                 </a>
                             </li>
 
-                            <li className="nav-item ">
+                            <li className="nav-item me-4 ">
                                 <a className="nav-link color-txt-orange border-bottom border-warning "
                                     aria-current="page"
                                     href="/#">
