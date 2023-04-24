@@ -21,7 +21,7 @@ function App() {
 
 
   return (
-    <div className="App row mx-0">
+    <div className="App row mx-0 font">
       <UserContext.Provider value={{ user, setUser }}>
         <div className='col color-green '>
 

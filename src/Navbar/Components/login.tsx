@@ -13,7 +13,7 @@ export function LoginForm() {
     const notifySuccess = (msg: string) =>
         toast.success(msg, {
             position: 'bottom-right',
-            autoClose: 3000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,

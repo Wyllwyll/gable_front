@@ -1,5 +1,5 @@
 import { Tcomposants } from "./tipage/Tcomposants";
-import { Tselection } from "./tipage/Tselection";
+
 
 
 
@@ -54,7 +54,7 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
 
                                     </tr>
                                 </thead>
-                                <tbody className="table-group-divider">
+                                <tbody className="table-group-divider ">
                                     {tableau}
                                 </tbody>
                             </table>

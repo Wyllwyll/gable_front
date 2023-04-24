@@ -1,7 +1,15 @@
+@font-face {
+    font-family: 'Rubik';
+    src: local('Rubik'), url(../static/font/Rubik-SemiBoldItalic.ttf) format('truetype');
+}
+
+.font {
+    font-family: 'Rubik';
+}
+
 .color-green {
     background-color: #426F6A;
 }
-
 
 .color-yellow {
     background-color: #D9DBA9;
@@ -11,14 +19,43 @@
     background-color: #E6C24D;
 }
 
+
+.color-txt-green {
+    color: #426F6A;
+}
+
+.color-txt-yellow {
+    color: #D9DBA9;
+}
+
+
+.color-txt-orange {
+    color: #E6C24D
+}
+
+.color-txt-dark {
+    color: black
+}
+
+.color-red{
+    background-color: #ff0000;
+}
+
+
 .App {
     height: 100vh;
 }
 
 
 .pc-backgound {
-    background-image: url(/upload/pcFond.svg);
+    background-image: url(/static/upload/pcFond.svg);
     background-repeat: no-repeat;
     background-position: center;
     height: 100%;
 }
+
+.button-border {
+    border: 1px solid #E6C24D;
+    padding: 5px;
+}
+

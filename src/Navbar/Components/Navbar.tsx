@@ -28,12 +28,12 @@ export function Navbar(props: {
             </button>
 
 
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
+            <div className="collapse navbar-collapse " id="navbarNav">
+                <ul className="navbar-nav ">
                     {userData.user.access_lvl < 1 ? (
                         <>
-                            <li className="nav-item">
-                                <a className="nav-link "
+                            <li className="nav-item  ">
+                                <a className="nav-link color-txt-orange border-bottom border-warning "
                                     href="/#"
                                     data-bs-toggle="modal"
                                     data-bs-target="#loginModal"
@@ -46,7 +46,7 @@ export function Navbar(props: {
 
 
                             <li className="nav-item">
-                                <a className="nav-link"
+                                <a className="nav-link color-txt-orange border-bottom border-warning"
                                     href="/#"
                                     data-bs-toggle="modal"
                                     data-bs-target="#registerModal"
@@ -57,7 +57,7 @@ export function Navbar(props: {
                             </li>
 
                             <li className="nav-item">
-                                <a className="nav-link "
+                                <a className="nav-link color-txt-orange border-bottom border-warning"
                                     aria-current="page"
                                     href="/#">
                                     Pre-Build
@@ -71,7 +71,7 @@ export function Navbar(props: {
                     {userData.user.access_lvl > 0 ? (
                         <>
                             <li className="nav-item">
-                                <a className="nav-link "
+                                <a className="nav-link color-txt-orange border-bottom border-warning "
                                     aria-current="page"
                                     href="/#">
                                     Profil
@@ -79,7 +79,7 @@ export function Navbar(props: {
                             </li>
 
                             <li className="nav-item">
-                                <a className="nav-link "
+                                <a className="nav-link color-txt-orange border-bottom border-warning "
                                     aria-current="page"
                                     href="/#"
                                     type="button"
@@ -91,8 +91,8 @@ export function Navbar(props: {
                                 </a>
                             </li>
 
-                            <li className="nav-item">
-                                <a className="nav-link "
+                            <li className="nav-item ">
+                                <a className="nav-link color-txt-orange border-bottom border-warning "
                                     aria-current="page"
                                     href="/#">
                                     Pre-Build
