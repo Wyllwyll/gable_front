@@ -5,14 +5,14 @@ export default function ConfigurateurDroit() {
 
 
     return (
-        <div className="pc-backgound">
-            
-            <div className="text-center pt-3 color-txt-green ">
+        <div className="pc-backgound position-relative">
+
+            <h3 className="text-center pt-3 color-txt-green ">
                 GABLE-
-            </div>
-            <div className="text-center color-txt-green ">
+            </h3>
+            <h3 className="text-center color-txt-green ">
                 PC CREATOR
-            </div>
+            </h3>
 
 
             <div>

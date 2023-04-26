@@ -28,7 +28,7 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
 
         <>
             <div
-                className="modal fade"
+                className="modal fade modalTable"
                 aria-labelledby="choixModal"
                 id="choixModal"
                 tabIndex={-1}
@@ -46,7 +46,7 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
                             ></button>
                         </div>
 
-                        <div className="modal-body">
+                        <div className="modal-body modalTable">
 
                             <table className="table table-hover table-responsive ">
                                 <thead>

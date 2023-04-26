@@ -1,51 +1,117 @@
 import { useContext } from "react";
 import { selectionsContext } from "../../context/SelectionContext";
+import { BASE_URL } from "../../constant/url";
+import { toast } from "react-toastify";
+import { UserContext } from "../../context/UserContext";
 
 export default function OrderAffichage() {
     const { selections } = useContext(selectionsContext)
+    const { user } = useContext(UserContext)
+    console.log(user);
+
+
+    const notifySuccess = (msg: string) =>
+        toast.success(msg, {
+            position: 'bottom-right',
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: 'light',
+        });
+    const notifyError = (msg: string) =>
+        toast.error(msg, {
+            position: 'bottom-right',
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: 'light',
+        });
+
+
+    const arrNbr = selections.filter(elm => elm !== undefined).map(elm => elm.id)
+
+    const handleSaveClick = () => {
+
+        const body = {
+            componentId: arrNbr
+        }
+
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user.access_token}` },
+            body: JSON.stringify(body)
+        }
+
+
+
+        fetch(`${BASE_URL}/orders`, options)
+            .then((response) => response.json())
+
+            .then((data) => {
+                if (data.data) {
+                    console.log(data.data);
+                    notifySuccess(data.message);
+                } else {
+                    notifyError(data.message[0]);
+                    data.message.forEach((element: string) => {
+                        notifyError(element)
+                    });
+                }
+            })
+
+
+    }
+
+
+
+
+
+
     return (
-        <div className="container-fluid rounded color-green opacity-90">
-            <div className=""> {selections[1] && `${selections[1].description}  ${selections[1].price}`}
-            </div>
-
-            <div className=""> {selections[2] && `${selections[2].description}  ${selections[2].price}`}
-            </div>
 
 
-            <div className=""> {selections[5] && `${selections[5].description}  ${selections[5].price}`}
-            </div>
 
+        <div className="rounded opacity2 hauteurOrder stickyAff ">
 
-            <div className=""> {selections[10] && `${selections[10].description}  ${selections[10].price}`}
-            </div>
+            <h2 className="text-white ms-2">Récapitulatif : </h2>
 
+            <div className=" ms-2">
+                {selections.map((item, i) => (
 
-            <div className=""> {selections[6] && `${selections[6].description}  ${selections[6].price}`}
-            </div>
+                    <tr key={i} >
+                        <td >{item && `${item.description}`}</td>
+                        <td >{item && `${item.price}`}</td>
+                    </tr>
 
-            <div className=""> {selections[4] && `${selections[4].description}  ${selections[4].price}`}
-            </div>
-
-
-            <div className=""> {selections[7] && `${selections[7].description}  ${selections[7].price}`}
-            </div>
-
-
-            <div className=""> {selections[8] && `${selections[8].description}  ${selections[8].price}`}
-            </div>
-
-
-            <div className=""> {selections[9] && `${selections[9].description}  ${selections[9].price}`}
+                   /*  <div className="mb-2">
+                        {item && `${item.description}  ${item.price}`}
+                    </div> */
+                ))}
             </div>
 
 
 
-            <div className=""> {selections[11] && `${selections[11].description}  ${selections[11].price}`}
+            <div className="text-white">
+                Total :
+            </div>
+
+            <div className="color-txt-orange">
+                <div onClick={() => handleSaveClick()} >
+                    Sauvegarder
+                </div>
+
+                <div>
+                    Supprimer
+                </div>
             </div>
 
 
-            <div className=""> {selections[12] && `${selections[12].description}  ${selections[12].price}`}
-            </div>
         </div>
     )
 

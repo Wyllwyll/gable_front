@@ -52,11 +52,13 @@ export function LoginForm() {
             fetch(`${BASE_URL}/auth/login`, options)
                 .then((response) => response.json())
                 .then((data) => {
+                    console.log(data);
+                    
                     if (data.data) {
                         emailRef.current!.value = ' ';
                         passwordRef.current!.value = ' ';
 
-
+//setToken(data.data.a)
                         setUser(data.data);
                         setTimeout(() => {
                             document.getElementById('close')?.click();

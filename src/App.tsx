@@ -12,6 +12,7 @@ import ConfigurateurGauche from './Configurateur/Components/Configurateur_gauche
 import ConfigurateurDroit from './Configurateur/Components/configurateur_droit';
 import { Tcomposants } from './Configurateur/Components/tipage/Tcomposants';
 import { selectionsContext } from './context/SelectionContext';
+import logoGable from '../public/upload/Logo2.svg'
 
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
@@ -22,34 +23,36 @@ function App() {
 
 
 
+
   return (
     <div className="App row mx-0 font">
-      <selectionsContext.Provider value={{selections, setSelections}}>
-      <UserContext.Provider value={{ user, setUser }}>
-        
-        <div className='col color-green '>
+      <selectionsContext.Provider value={{ selections, setSelections }}>
+        <UserContext.Provider value={{ user, setUser }}>
+          <div className='col color-green '>
 
-          <header className="App-header">
-            <Navbar setPage={setPage} page={page} />
+            <header className="App-header">
+              <Navbar setPage={setPage} page={page} />
 
-          </header>
-          <main className="">
+            </header>
+            <main>
 
-            <LoginForm />
-            <RegisterForm />
-            <ConfigurateurGauche />
+              <LoginForm />
+              <RegisterForm />
+              <ConfigurateurGauche />
 
-          </main>
-        </div>
+            </main>
+          </div>
 
-        <div className='col color-yellow'>
-        
+          <div className='col color-yellow'>
             <ConfigurateurDroit />
-            
-         
-
-        </div>
-      </UserContext.Provider>
+          </div>
+          <div>
+          <img className='logo-center'
+                alt="logoGable"
+                src="/img/Logo2.svg">
+              </img>
+          </div>
+        </UserContext.Provider>
       </selectionsContext.Provider>
     </div>
 

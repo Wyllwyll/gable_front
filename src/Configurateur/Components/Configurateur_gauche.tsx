@@ -3,10 +3,7 @@ import ModalChoix from "./modal_choix";
 import { BASE_URL } from "../../constant/url";
 import { Tcomposants } from "./tipage/Tcomposants";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import OrderAffichage from "./order_affichage";
 import { selectionsContext } from "../../context/SelectionContext";
-
-
 
 
 
@@ -259,7 +256,7 @@ export default function ConfigurateurGauche() {
                             Carte-Reseau
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[12] && `${selections[12].description}  ${selections[12].price}`}</div>
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1 mb-5"> {selections[12] && `${selections[12].description}  ${selections[12].price}`}</div>
                     </h2>
                 </div>
             </div>
