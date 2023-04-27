@@ -63,31 +63,42 @@
     padding: 5px;
 }
 
-.opacity2{
+.opacity2 {
     background-color: rgba(66, 111, 106, 0.9);
 }
 
 
-.hauteurOrder{
+.hauteurOrder {
     height: calc(82vh - 5em);
-    width:103vh;
+    width: 103vh;
 }
 
 
-.stickyAff{
-    position: fixed;
+.stickyAff {
+    position:fixed;
     top: 100px;
 }
 
 
-.logo-center{ 
-    position:absolute;
+@media (max-width: 768px) {
+    .stickyAff {
+        position:sticky;
+        bottom: 100px;
+    }
+}
+
+.logo-center {
+    position: absolute;
     top: 0.5em;
     margin-left: calc(50% - 82px);
     justify-content: center;
-    
-    }
 
-    .modalTable{
-        overflow-y:scroll ;
-    }
+}
+
+.modalTable {
+    overflow-y: scroll;
+}
+
+.cursor {
+    cursor: pointer;
+}

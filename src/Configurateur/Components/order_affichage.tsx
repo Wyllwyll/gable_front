@@ -98,11 +98,11 @@ export default function OrderAffichage() {
             </div>
 
             <div className="color-txt-orange">
-                <div onClick={() => handleSaveClick()} >
+                <div className=" cursor" onClick={() => handleSaveClick()} >
                     Sauvegarder
                 </div>
 
-                <div>
+                <div className=" cursor">
                     Supprimer
                 </div>
             </div>

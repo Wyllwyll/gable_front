@@ -16,7 +16,7 @@ import { selectionsContext } from './context/SelectionContext';
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
   const [page, setPage] = useState<
-    'Configurateur'|'Profile'
+    'Configurateur'|'Profile'| "updateInfo"
   >('Configurateur');
   const [selections, setSelections] = useState<Tcomposants[]>([])
 
@@ -27,7 +27,7 @@ function App() {
     <div className="App row mx-0 font">
       <selectionsContext.Provider value={{ selections, setSelections }}>
         <UserContext.Provider value={{ user, setUser }}>
-          <div className='col color-green '>
+          <div className='col-12 col-md-6 color-green '>
 
             <header className="App-header">
               <Navbar setPage={setPage} />
@@ -42,17 +42,18 @@ function App() {
             </main>
           </div>
 
-          <div className='col color-yellow'>
+          <div className='col-12 col-md-6 color-yellow'>
             <ConfigurateurDroit page={page} setPage={setPage}/>
             
           </div>
 
           <div>
-            <img className='logo-center'
+            <img className='logo-center cursor'
               alt="logoGable"
               src="/img/Logo2.svg"
               onClick={() => {
                 setPage('Configurateur');
+                
 
             }}>
             </img>

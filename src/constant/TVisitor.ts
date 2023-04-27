@@ -6,4 +6,8 @@ export const DEFAULT_USER: TUser = {
     email: '',
     access_lvl: 0,
     access_token: '',
+    password: "",
+    nom: "",
+    prenom: "",
+    adresse: ""
 };
