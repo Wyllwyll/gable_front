@@ -5,9 +5,8 @@ import { DEFAULT_USER } from "../../constant/TVisitor";
 
 export function Navbar(props: {
     setPage: React.Dispatch<
-        React.SetStateAction<'Configurateur'>
+        React.SetStateAction<'Configurateur' | 'Profile'>
     >;
-    page: string;
 }) {
 
     const userData = useContext(UserContext);
@@ -73,7 +72,12 @@ export function Navbar(props: {
                             <li className="nav-item me-4">
                                 <a className="nav-link color-txt-orange border-bottom border-warning "
                                     aria-current="page"
-                                    href="/#">
+                                    href="/#"
+                                    onClick={() => {
+                                        props.setPage('Profile');
+
+                                    }}>
+
                                     Profil
                                 </a>
                             </li>

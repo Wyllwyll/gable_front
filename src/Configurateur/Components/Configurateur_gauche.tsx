@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import ModalChoix from "./modal_choix";
 import { BASE_URL } from "../../constant/url";
-import { Tcomposants } from "./tipage/Tcomposants";
+import { Tcomposants } from "../tipage/Tcomposants";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { selectionsContext } from "../../context/SelectionContext";
 

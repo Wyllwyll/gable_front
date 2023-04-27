@@ -10,14 +10,13 @@ import { LoginForm } from './Navbar/Components/login';
 import { RegisterForm } from './Navbar/Components/Register';
 import ConfigurateurGauche from './Configurateur/Components/Configurateur_gauche';
 import ConfigurateurDroit from './Configurateur/Components/configurateur_droit';
-import { Tcomposants } from './Configurateur/Components/tipage/Tcomposants';
+import { Tcomposants } from './Configurateur/tipage/Tcomposants';
 import { selectionsContext } from './context/SelectionContext';
-import logoGable from '../public/upload/Logo2.svg'
 
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
   const [page, setPage] = useState<
-    'Configurateur'
+    'Configurateur'|'Profile'
   >('Configurateur');
   const [selections, setSelections] = useState<Tcomposants[]>([])
 
@@ -31,7 +30,7 @@ function App() {
           <div className='col color-green '>
 
             <header className="App-header">
-              <Navbar setPage={setPage} page={page} />
+              <Navbar setPage={setPage} />
 
             </header>
             <main>
@@ -44,13 +43,20 @@ function App() {
           </div>
 
           <div className='col color-yellow'>
-            <ConfigurateurDroit />
+            <ConfigurateurDroit page={page} setPage={setPage}/>
+            
           </div>
+
           <div>
-          <img className='logo-center'
-                alt="logoGable"
-                src="/img/Logo2.svg">
-              </img>
+            <img className='logo-center'
+              alt="logoGable"
+              src="/img/Logo2.svg"
+              onClick={() => {
+                setPage('Configurateur');
+
+            }}>
+            </img>
+
           </div>
         </UserContext.Provider>
       </selectionsContext.Provider>

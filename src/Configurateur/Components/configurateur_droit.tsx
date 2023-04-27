@@ -1,7 +1,7 @@
+import Profile from "../../PanelUser/Components/Panel_user";
 import OrderAffichage from "./order_affichage";
 
-export default function ConfigurateurDroit() {
-
+export default function ConfigurateurDroit(props: { page: string, setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile">> }) {
 
 
     return (
@@ -16,7 +16,14 @@ export default function ConfigurateurDroit() {
 
 
             <div>
-                <OrderAffichage />
+                {props.page === 'Configurateur' && (
+                    <OrderAffichage
+                    />)}
+            </div>
+            <div >
+                {props.page === 'Profile' && (
+                    <Profile setPage={props.setPage} />
+                )}
             </div>
         </div>
 

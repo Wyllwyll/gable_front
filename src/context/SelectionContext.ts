@@ -1,5 +1,5 @@
 import React from "react";
-import { Tcomposants } from "../Configurateur/Components/tipage/Tcomposants";
+import { Tcomposants } from "../Configurateur/tipage/Tcomposants";
 
 export const selectionsContext = React.createContext<({
     selections: Tcomposants[],

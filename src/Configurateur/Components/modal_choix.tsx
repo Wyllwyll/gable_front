@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Tcomposants } from "./tipage/Tcomposants";
+import { Tcomposants } from "../tipage/Tcomposants";
 import { selectionsContext } from "../../context/SelectionContext";
 
 

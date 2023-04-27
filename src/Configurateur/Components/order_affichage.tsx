@@ -81,17 +81,13 @@ export default function OrderAffichage() {
 
             <h2 className="text-white ms-2">Récapitulatif : </h2>
 
-            <div className=" ms-2">
+            <div >
                 {selections.map((item, i) => (
 
-                    <tr key={i} >
-                        <td >{item && `${item.description}`}</td>
-                        <td >{item && `${item.price}`}</td>
+                    <tr className="row ms-2" key={i} >
+                        <td className="col">{item && `${item.description}`}</td>
+                        <td className="col">{item && `${item.price}`}</td>
                     </tr>
-
-                   /*  <div className="mb-2">
-                        {item && `${item.description}  ${item.price}`}
-                    </div> */
                 ))}
             </div>
 
