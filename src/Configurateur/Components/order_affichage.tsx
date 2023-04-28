@@ -7,7 +7,6 @@ import { UserContext } from "../../context/UserContext";
 export default function OrderAffichage() {
     const { selections } = useContext(selectionsContext)
     const { user } = useContext(UserContext)
-    console.log(user);
 
 
     const notifySuccess = (msg: string) =>

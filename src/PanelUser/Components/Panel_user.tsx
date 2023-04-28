@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import UpdateInfo from "./UpdateInformation";
+import UpdatePassword from "./UpdatePassword";
 
 
 
 export default function Profile(props: {
     page: string,
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword">>
 }) {
     const userCtx = React.useContext(UserContext);
     const { user } = userCtx
     const [modifInfo, setModifInfo] = useState("")
     const [visible, setVisible] = useState("")
+    const [modifPass, setModifPass] = useState("")
 
 
 
@@ -38,10 +40,16 @@ export default function Profile(props: {
                 }}>{visible ? "Retour" : "Modifier mes Informations"}</div>
 
 
-                <div className="cursor">Modifier mon Mot de Passe</div>
+
+                <div className="cursor" onClick={() => {
+                    setModifPass('updatePassword'); setVisible(visible ? "" : "updatePassword")
+                }}>{visible ? "Retour" : "Modifier mon Mot de Passe"}</div>
+
 
 
                 <div className="cursor">Mes Configurations</div>
+
+
 
             </div>
             {visible === "" && (
@@ -58,7 +66,16 @@ export default function Profile(props: {
                     {modifInfo === 'updateInfo' && <UpdateInfo setPage={props.setPage} />}
                 </div>
             )}
-            </div>
+
+
+            {visible === "updatePassword" && (
+                <div >
+                    {modifPass === 'updatePassword' && <UpdatePassword setPage={props.setPage} />}
+                </div>
+            )}
+        </div>
+
+
     )
 }
 

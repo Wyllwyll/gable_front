@@ -1,7 +1,7 @@
 import Profile from "../../PanelUser/Components/Panel_user";
 import OrderAffichage from "./order_affichage";
 
-export default function ConfigurateurDroit(props: { page: string, setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile"| "updateInfo">> }) {
+export default function ConfigurateurDroit(props: { page: string, setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile"| "updateInfo"| "updatePassword">> }) {
 
 
     return (

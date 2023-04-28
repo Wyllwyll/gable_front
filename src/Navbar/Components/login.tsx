@@ -65,7 +65,7 @@ export function LoginForm() {
                         }, 1500);
                         notifySuccess(data.message);
                     } else {
-                        notifyError(data.message[0]);
+                        notifyError("Identifiants incorrects");
                         data.message.forEach((element: string) => {
                             notifyError(element)
                         });

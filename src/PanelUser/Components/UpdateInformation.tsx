@@ -3,11 +3,11 @@ import { TUser } from "../../Navbar/types/TUser";
 import { UserContext } from "../../context/UserContext";
 import { BASE_URL } from "../../constant/url";
 import { toast } from "react-toastify";
-import { log } from "console";
+
 
 
 export default function UpdateInfo(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo"| "updatePassword">>
 }) {
 
     const notifySuccess = (msg: string) =>
@@ -37,17 +37,14 @@ export default function UpdateInfo(props: {
     const [infos, setInfos] = useState<TUser>(
         { ...user }
     );
+    
     const infosHandlerTextuel = (key: "nom" | "prenom" | "adresse" | "email", value: string) => {
         const newInfos = { ...infos };
         newInfos[key] = value
         setInfos(newInfos);
-        console.log(newInfos, value)
-
     };
 
     const handleSaveClick = () => {
-        console.log(infos);
-        
         const options = {
             method: "PATCH",
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user.access_token}` },
@@ -57,12 +54,11 @@ export default function UpdateInfo(props: {
         fetch(`${BASE_URL}/users`, options)
             .then((response) => response.json())
             .then(responseJson => {
-                console.log(responseJson);
+
 
                 if (responseJson.data) {
                     responseJson.data.access_token = infos.access_token;
                     setUser(responseJson.data)
-                    console.log("set", responseJson);
 
                     notifySuccess(responseJson.message);
                 } else {
@@ -131,8 +127,6 @@ export default function UpdateInfo(props: {
                     Sauvegarder les changements
                 </button>
             </div>
-
         </div>
-
     )
 }
