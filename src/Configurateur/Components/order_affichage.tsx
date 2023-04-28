@@ -55,7 +55,7 @@ export default function OrderAffichage() {
 
             .then((data) => {
                 if (data.data) {
-                    console.log(data.data);
+                    
                     notifySuccess(data.message);
                 } else {
                     notifyError(data.message[0]);
