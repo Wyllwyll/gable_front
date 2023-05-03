@@ -66,7 +66,7 @@ export default function ConfigurateurGauche() {
                             Processeur
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[1] && `${selections[1].description}  ${selections[1].price}`}
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[2] && `${selections[2].description}  ${selections[2].price}`}
 
                             {showClearButton && (
                                 <a
@@ -94,7 +94,7 @@ export default function ConfigurateurGauche() {
                             Carte-Mere
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1">{selections[2] && `${selections[2].description}  ${selections[2].price}`}
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1">{selections[1] && `${selections[1].description}  ${selections[1].price}`}
 
                             {showClearButton && (
                                 <a
@@ -138,7 +138,7 @@ export default function ConfigurateurGauche() {
                             Memoire Vive RAM
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2  color-txt-dark fs-6 p-1"> {selections[10] && `${selections[10].description}  ${selections[10].price}`}</div>
+                        <div className="color-yellow rounded-2  color-txt-dark fs-6 p-1"> {selections[4] && `${selections[4].description}  ${selections[4].price}`}</div>
                     </h2>
                 </div>
             </div>
@@ -172,7 +172,7 @@ export default function ConfigurateurGauche() {
                             Boitier
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[4] && `${selections[4].description}  ${selections[4].price}`}</div>
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[7] && `${selections[7].description}  ${selections[7].price}`}</div>
                     </h2>
                 </div>
             </div>
@@ -189,7 +189,7 @@ export default function ConfigurateurGauche() {
                             Alimentation
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[7] && `${selections[7].description}  ${selections[7].price}`}</div>
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[8] && `${selections[8].description}  ${selections[8].price}`}</div>
                     </h2>
                 </div>
             </div>
@@ -206,7 +206,7 @@ export default function ConfigurateurGauche() {
                             SSD
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[8] && `${selections[8].description}  ${selections[8].price}`}</div>
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[9] && `${selections[9].description}  ${selections[9].price}`}</div>
                     </h2>
                 </div>
             </div>
@@ -223,7 +223,7 @@ export default function ConfigurateurGauche() {
                             HDD
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[9] && `${selections[9].description}  ${selections[9].price}`}</div>
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[10] && `${selections[10].description}  ${selections[10].price}`}</div>
                     </h2>
                 </div>
             </div>
@@ -257,7 +257,7 @@ export default function ConfigurateurGauche() {
                             Carte-Reseau
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1 mb-5"> {selections[12] && `${selections[12].description}  ${selections[12].price}`}</div>
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1 mb-5"> {selections[3] && `${selections[3].description}  ${selections[3].price}`}</div>
                     </h2>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { UserContext } from "../../context/UserContext";
 import { BASE_URL } from "../../constant/url";
 import { toast } from "react-toastify";
 import { TOrders } from "../tipage/TOrders";
+import moment from 'moment';
 
 export default function UpdateOrders(props: {
     setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders">>
@@ -36,7 +37,7 @@ export default function UpdateOrders(props: {
             .then((response) => response.json())
             .then((data) => {
                 if (data) {
-                    setOrders(data)
+                    setOrders(data.data)
                 } else {
                     notifyError(data.message[0]);
                     data.message.forEach((element: string) => {
@@ -44,11 +45,13 @@ export default function UpdateOrders(props: {
                     });
                 }
             })
-    })
+    },[])
+
+
     const tableauOrders = (orders.map((elm, key) =>
         <tr key={key}  >
-            <td>{elm.created_at.toLocaleDateString()}</td>
-            <td>{elm.updated_at.toLocaleDateString()}</td>
+            <td>{moment(elm.created_at).format("DD/MM/YYYY")}</td>
+            <td>{moment(elm.updated_at).format("DD/MM/YYYY")}</td>
         </tr >
     ))
 

@@ -57,10 +57,8 @@ export default function OrderAffichage() {
                     
                     notifySuccess(data.message);
                 } else {
-                    notifyError(data.message[0]);
-                    data.message.forEach((element: string) => {
-                        notifyError(element)
-                    });
+                    notifyError('Vous devez etre connecte');
+                    ;
                 }
             })
 
