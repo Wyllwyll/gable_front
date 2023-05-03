@@ -3,7 +3,6 @@ import { selectionsContext } from "../../context/SelectionContext";
 import { BASE_URL } from "../../constant/url";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
-import { Tcomposants } from "../tipage/Tcomposants";
 
 export default function OrderAffichage() {
     const { selections,setSelections } = useContext(selectionsContext)

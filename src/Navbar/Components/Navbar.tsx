@@ -5,7 +5,7 @@ import { DEFAULT_USER } from "../../constant/TVisitor";
 
 export function Navbar(props: {
     setPage: React.Dispatch<
-        React.SetStateAction<'Configurateur' | 'Profile' | "updateInfo"| "updatePassword"| "updateOrders">
+        React.SetStateAction<'Configurateur' | 'Profile' | "updateInfo" | "updatePassword" | "updateOrders">
     >;
 }) {
 
@@ -54,14 +54,6 @@ export function Navbar(props: {
                                     S'enregistrer
                                 </a>
                             </li>
-
-                            {/* <li className="nav-item me-4">
-                                <a className="nav-link color-txt-orange border-bottom border-warning"
-                                    aria-current="page"
-                                    href="/#">
-                                    Pre-Build
-                                </a>
-                            </li> */}
                         </>
                     ) : (
                         ''
@@ -94,14 +86,6 @@ export function Navbar(props: {
                                     Deconnexion
                                 </a>
                             </li>
-{/* 
-                            <li className="nav-item me-4 ">
-                                <a className="nav-link color-txt-orange border-bottom border-warning "
-                                    aria-current="page"
-                                    href="/#">
-                                    Pre-Build
-                                </a>
-                            </li> */}
                         </>
                     ) : (
                         ''
