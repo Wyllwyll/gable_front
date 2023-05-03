@@ -5,7 +5,7 @@ import { TUser } from "../../Navbar/types/TUser";
 import { BASE_URL } from "../../constant/url";
 
 export default function UpdatePassword(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword"| "updateOrders">>
 }) {
     const notifySuccess = (msg: string) =>
         toast.success(msg, {

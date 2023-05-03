@@ -5,7 +5,7 @@ import { DEFAULT_USER } from "../../constant/TVisitor";
 
 export function Navbar(props: {
     setPage: React.Dispatch<
-        React.SetStateAction<'Configurateur' | 'Profile' | "updateInfo"| "updatePassword">
+        React.SetStateAction<'Configurateur' | 'Profile' | "updateInfo"| "updatePassword"| "updateOrders">
     >;
 }) {
 

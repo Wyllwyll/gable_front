@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import UpdateInfo from "./UpdateInformation";
 import UpdatePassword from "./UpdatePassword";
+import UpdateOrders from "./UpdateOrders";
 
 
 
 export default function Profile(props: {
     page: string,
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders">>
 }) {
     const userCtx = React.useContext(UserContext);
     const { user } = userCtx
     const [modifInfo, setModifInfo] = useState("")
     const [visible, setVisible] = useState("")
     const [modifPass, setModifPass] = useState("")
+    const [modifOrders, setModifOrders] = useState("")
 
 
 
@@ -36,18 +38,22 @@ export default function Profile(props: {
 
             <div className=" ms-2 color-txt-orange">
                 <div className="cursor" onClick={() => {
-                    setModifInfo('updateInfo'); setVisible(visible ? "" : "updateInfo")
-                }}>{visible ? "Retour" : "Modifier mes Informations"}</div>
+                    setModifInfo('updateInfo'); setVisible(visible === "updateInfo" ? "" : "updateInfo")
+                }}>{visible === "updateInfo" ? "Retour" : "Modifier mes Informations"}</div>
 
 
 
                 <div className="cursor" onClick={() => {
-                    setModifPass('updatePassword'); setVisible(visible ? "" : "updatePassword")
-                }}>{visible ? "Retour" : "Modifier mon Mot de Passe"}</div>
+                    setModifPass('updatePassword'); setVisible(visible === "updatePassword" ? "" : "updatePassword")
+                }}>{visible === "updatePassword" ? "Retour" : "Modifier mon Mot de Passe"}</div>
+
+
+                <div className="cursor" onClick={() => {
+                    setModifOrders('updateOrders'); setVisible(visible === "updateOrders" ? "" : "updateOrders")
+                }}>{visible === "updateOrders" ? "Retour" : "Mes Configurations"}</div>
 
 
 
-                <div className="cursor">Mes Configurations</div>
 
 
 
@@ -61,6 +67,8 @@ export default function Profile(props: {
                 </div>
             )}
 
+
+
             {visible === "updateInfo" && (
                 <div >
                     {modifInfo === 'updateInfo' && <UpdateInfo setPage={props.setPage} />}
@@ -71,6 +79,12 @@ export default function Profile(props: {
             {visible === "updatePassword" && (
                 <div >
                     {modifPass === 'updatePassword' && <UpdatePassword setPage={props.setPage} />}
+                </div>
+            )}
+
+            {visible === "updateOrders" && (
+                <div >
+                    {modifOrders === 'updateOrders' && <UpdateOrders setPage={props.setPage} />}
                 </div>
             )}
         </div>

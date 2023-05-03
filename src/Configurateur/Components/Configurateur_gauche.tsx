@@ -26,6 +26,7 @@ export default function ConfigurateurGauche() {
         setShowClearButton(Boolean(selections[1]));
     }, [selections]);
 
+    
     const handleClearButtonClick = () => {
         setSelections([])
     };
