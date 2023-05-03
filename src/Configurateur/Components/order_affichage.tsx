@@ -3,9 +3,10 @@ import { selectionsContext } from "../../context/SelectionContext";
 import { BASE_URL } from "../../constant/url";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
+import { Tcomposants } from "../tipage/Tcomposants";
 
 export default function OrderAffichage() {
-    const { selections } = useContext(selectionsContext)
+    const { selections,setSelections } = useContext(selectionsContext)
     const { user } = useContext(UserContext)
 
 
@@ -32,8 +33,14 @@ export default function OrderAffichage() {
             theme: 'light',
         });
 
+    const total = selections.filter(elm => elm !== undefined).map((item: any) => parseFloat(item?.price)).reduce((acc, curr) => acc + curr, 0);
 
-    const arrNbr = selections.filter(elm => elm !== undefined).map(elm => elm.id)
+
+
+    let arrNbr = selections.filter(elm => elm !== undefined).map(elm => elm.id)
+
+
+
 
     const handleSaveClick = () => {
 
@@ -54,7 +61,7 @@ export default function OrderAffichage() {
 
             .then((data) => {
                 if (data.data) {
-                    
+
                     notifySuccess(data.message);
                 } else {
                     notifyError('Vous devez etre connecte');
@@ -66,7 +73,9 @@ export default function OrderAffichage() {
     }
 
 
-
+    const handleDeleteClick = () => {
+        setSelections([]);
+    }
 
 
 
@@ -91,7 +100,7 @@ export default function OrderAffichage() {
 
 
             <div className="text-white">
-                Total :
+                Total :{total.toFixed(2)} €
             </div>
 
             <div className="color-txt-orange">
@@ -99,7 +108,7 @@ export default function OrderAffichage() {
                     Sauvegarder
                 </div>
 
-                <div className=" cursor">
+                <div className=" cursor" onClick={() => handleDeleteClick()}>
                     Supprimer
                 </div>
             </div>
