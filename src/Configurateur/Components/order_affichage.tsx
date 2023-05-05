@@ -39,10 +39,10 @@ export default function OrderAffichage(props: {
             theme: 'light',
         });
 
+
     const total = Object.values(selections)
         .filter((elm): elm is Tcomposants => elm !== undefined)
-        .reduce((acc, curr) => acc + Number(curr.price || 0), 0);
-
+        .reduce((acc, curr) => acc + (parseFloat(curr.price.toString()||"0")), 0);
 
 
     let arrNbr = Object.values(selections)
@@ -108,7 +108,7 @@ export default function OrderAffichage(props: {
 
 
             <div className="text-white">
-                Total :{total.toFixed(2)} €
+                Total :{total} €
             </div>
 
             <div className="color-txt-orange">

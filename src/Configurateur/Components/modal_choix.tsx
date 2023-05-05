@@ -13,12 +13,15 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
 
 
     function setSelectedComponent(clickedElement: Tcomposants) {
-        console.log(clickedElement);
+        console.log("logElementSelection",clickedElement);
         const newSelections = {
             ...selections,
             [clickedElement.types.id]: clickedElement,
         };
+        console.log(newSelections);
+        
         setSelections(newSelections);
+        
     }
 
     const tableau = (props.types.map((elm, key) =>

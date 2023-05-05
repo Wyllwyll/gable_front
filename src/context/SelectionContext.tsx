@@ -30,21 +30,3 @@ export const SelectionProvider: FC<SelectionProviderProps> = ({ children, value 
     );
 };
 
-
-
-
-/* interface SelectionContextType {
-    selections: { [key: string]: Tcomposants | undefined };
-    setSelections: (value: { [key: string]: Tcomposants | undefined }) => void;
-}
-
-export const SelectionContext = React.createContext<SelectionContextType | null>(null);
-
-export const SelectionProvider: FC<PropsWithChildren> = ({ children }) => {
-    const [selections, setSelections] = useState<{ [key: string]: Tcomposants | undefined }>({});
-    return (
-        <SelectionContext.Provider value={{ selections, setSelections }}>
-            {children}
-        </SelectionContext.Provider>
-    );
-}; */

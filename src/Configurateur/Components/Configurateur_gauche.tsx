@@ -7,21 +7,15 @@ import { SelectionContext } from "../../context/SelectionContext";
 
 
 
+
+
 export default function ConfigurateurGauche() {
 
     const [modalTitle, setModalTitle] = useState<string>("");
     const [types, setTypes] = useState<Tcomposants[]>([]);
-    const context = useContext(SelectionContext);
-
-    useEffect(() => {
-    }, [context]);
-
-    const { selections, setSelections } = context || {};
-    if (!context) {
-        console.log(selections);
-        return null;
-    }
-
+    const context = useContext(SelectionContext)
+    if (!context) return null
+    const { selections, setSelections } = context
 
     const handleSelectionClear = (key: string) => {
         const newSelections = { ...selections };
@@ -33,20 +27,18 @@ export default function ConfigurateurGauche() {
 
     const handleButtonClick = (title: string) => {
         setModalTitle(title);
-
         fetch(`${BASE_URL}/components/type/${title}`)
             .then((response) => response.json())
             .then((data) => {
                 setTypes(data.data);
             });
-
-
     };
 
     return (
+
         <>
             <div className=" mt-5 ">
-
+               {/*  <div>test{JSON.stringify(selections)} </div> */}
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange " id="headingOne">
                         <button className="accordion-button fs-4 "
@@ -60,22 +52,17 @@ export default function ConfigurateurGauche() {
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
                         <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1">
-                            {selections["Processeur"] && (
-                                <>
-                                    <div>{selections["Processeur"].description}</div>
-                                    <div>{selections["Processeur"].price}</div>
-                                    <a
-                                        className="btn btn-sm btn-outline-danger ms-2"
-                                        onClick={() => {
-                                            handleSelectionClear("Processeur");
-                                        }}
-                                    >
-                                        <i className="bi bi-x-square"></i>
-                                    </a>
-                                </>
-                            )}
-                            {!selections["Processeur"] && (
-                                <span>Aucune sélection de processeur</span>
+                            {selections['2'] &&
+                                `${selections['2'].description}  
+                            ${selections['2'].price}`}
+
+                            {selections['2'] && (
+                                <a
+                                    className="btn btn-sm btn-outline-danger ms-2"
+                                    onClick={() => handleSelectionClear('2')}
+                                >
+                                    <i className="bi bi-x-square"></i>
+                                </a>
                             )}
                         </div>
                     </h2>
@@ -96,12 +83,14 @@ export default function ConfigurateurGauche() {
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
                         <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1">
-                            {selections["Carte-Mere"] && `${selections["Carte-Mere"].description}  ${selections["Carte-Mere"].price}`}
+                            {selections["1"] &&
+                                `${selections["1"].description}  
+                            ${selections["1"].price}`}
 
-                            {selections["Carte-Mere"] && (
+                            {selections["1"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("Carte-Mere")}
+                                    onClick={() => handleSelectionClear("1")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -124,11 +113,13 @@ export default function ConfigurateurGauche() {
                             Ventirad
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1 ">{selections["Ventirad"] && `${selections["Ventirad"].description}  ${selections["Ventirad"].price}`}
-                            {selections["Ventirad"] && (
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1 ">{selections["5"]
+                            && `${selections["5"].description}  
+                         ${selections["5"].price}`}
+                            {selections["5"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("Ventirad")}
+                                    onClick={() => handleSelectionClear("5")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -151,11 +142,14 @@ export default function ConfigurateurGauche() {
                             Memoire Vive RAM
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2  color-txt-dark fs-6 p-1"> {selections["Memoire-Vive(RAM)"] && `${selections["Memoire-Vive(RAM)"].description}  ${selections["Memoire-Vive(RAM)"].price}`}
-                            {selections["Memoire-Vive(RAM)"] && (
+                        <div className="color-yellow rounded-2  color-txt-dark fs-6 p-1"> {
+                            selections["4"] &&
+                            `${selections["4"].description}  
+                        ${selections["4"].price}`}
+                            {selections["4"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("Memoire-Vive(RAM)")}
+                                    onClick={() => handleSelectionClear("4")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -178,11 +172,14 @@ export default function ConfigurateurGauche() {
                             Carte Graphique
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["Carte-Graphique"] && `${selections["Carte-Graphique"].description}  ${selections["Carte-Graphique"].price}`}
-                            {selections["Carte-Graphique"] && (
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {
+                            selections["6"] &&
+                            `${selections["6"].description}  
+                        ${selections["6"].price}`}
+                            {selections["6"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("Carte-Graphique")}
+                                    onClick={() => handleSelectionClear("6")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -205,11 +202,14 @@ export default function ConfigurateurGauche() {
                             Boitier
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["Boitier"] && `${selections["Boitier"].description}  ${selections["Boitier"].price}`}
-                            {selections["Boitier"] && (
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {
+                            selections["7"] &&
+                            `${selections["7"].description}  
+                         ${selections["7"].price}`}
+                            {selections["7"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("Boitier")}
+                                    onClick={() => handleSelectionClear("7")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -232,11 +232,11 @@ export default function ConfigurateurGauche() {
                             Alimentation
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["Alimentation"] && `${selections["Alimentation"].description}  ${selections["Alimentation"].price}`}
-                            {selections["Alimentation"] && (
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["8"] && `${selections["8"].description}  ${selections["8"].price}`}
+                            {selections["8"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("Alimentation")}
+                                    onClick={() => handleSelectionClear("8")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -259,11 +259,11 @@ export default function ConfigurateurGauche() {
                             SSD
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["SSD"] && `${selections["SSD"].description}  ${selections["SSD"].price}`}
-                            {selections["SSD"] && (
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["9"] && `${selections["9"].description}  ${selections["9"].price}`}
+                            {selections["9"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("SSD")}
+                                    onClick={() => handleSelectionClear("9")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -286,11 +286,11 @@ export default function ConfigurateurGauche() {
                             HDD
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["HDD"] && `${selections["HDD"].description}  ${selections["HDD"].price}`}
-                            {selections["HDD"] && (
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["10"] && `${selections["10"].description}  ${selections["10"].price}`}
+                            {selections["10"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("HDD")}
+                                    onClick={() => handleSelectionClear("10")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -313,11 +313,11 @@ export default function ConfigurateurGauche() {
                             Carte-Son
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["Carte-Son"] && `${selections["Carte-Son"].description}  ${selections["Carte-Son"].price}`}
-                            {selections["Carte-Son"] && (
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections["11"] && `${selections["11"].description}  ${selections["11"].price}`}
+                            {selections["11"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("Carte-Son")}
+                                    onClick={() => handleSelectionClear("11")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -340,11 +340,11 @@ export default function ConfigurateurGauche() {
                             Carte-Reseau
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1 mb-5"> {selections["Carte-Reseau"] && `${selections["Carte-Reseau"].description}  ${selections["Carte-Reseau"].price}`}
-                            {selections["Carte-Reseau"] && (
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1 mb-5"> {selections["3"] && `${selections["3"].description}  ${selections["3"].price}`}
+                            {selections["3"] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={() => handleSelectionClear("Carte-Reseau")}
+                                    onClick={() => handleSelectionClear("3")}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
