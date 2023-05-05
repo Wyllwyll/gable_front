@@ -1,7 +1,8 @@
+import { SetStateAction } from "react";
 import Profile from "../../PanelUser/Components/Panel_user";
 import OrderAffichage from "./order_affichage";
 
-export default function ConfigurateurDroit(props: { page: string, setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile"| "updateInfo"| "updatePassword"| "updateOrders">> }) {
+export default function ConfigurateurDroit(props: { page: string, setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">> }) {
 
 
     return (
@@ -17,8 +18,9 @@ export default function ConfigurateurDroit(props: { page: string, setPage: React
 
             <div>
                 {props.page === 'Configurateur' && (
-                    <OrderAffichage
-                    />)}
+                    <OrderAffichage setPage={function (value: SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">): void {
+                        throw new Error("Function not implemented.");
+                    } }                    />)}
             </div>
             <div >
                 {props.page === 'Profile' && (

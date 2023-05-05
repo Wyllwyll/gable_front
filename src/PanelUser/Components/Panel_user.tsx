@@ -8,7 +8,8 @@ import UpdateOrders from "./UpdateOrders";
 
 export default function Profile(props: {
     page: string,
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">>
+
 }) {
     const userCtx = React.useContext(UserContext);
     const { user } = userCtx

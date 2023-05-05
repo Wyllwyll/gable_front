@@ -13,24 +13,24 @@ export default function ConfigurateurGauche() {
 
     const [modalTitle, setModalTitle] = useState<string>("");
     const [types, setTypes] = useState<Tcomposants[]>([]);
-    const {selections, setSelections} = useContext (selectionsContext)
+    const { selections, setSelections } = useContext(selectionsContext)
     const [showClearButton, setShowClearButton] = useState(false);
-
-
-
-
-
 
 
     useEffect(() => {
         setShowClearButton(Boolean(selections[1]));
     }, [selections]);
 
-    
-    const handleClearButtonClick = () => {
-        setSelections([])
-    };
 
+
+    /* const handleDelete = (id: number) => {
+        setComposants((prevState: any) => {
+            const updatedComposants = [...prevState];
+            const index = updatedComposants.findIndex(comp => comp.id === id);
+            updatedComposants.splice(index, 1);
+            return updatedComposants;
+        });
+    }; */
 
 
 
@@ -66,12 +66,13 @@ export default function ConfigurateurGauche() {
                             Processeur
                             <i className="bi bi-plus-square m-2"></i>
                         </button>
-                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1"> {selections[2] && `${selections[2].description}  ${selections[2].price}`}
+                        <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1">
+                            {selections[2] && `${selections[2].description}  ${selections[2].price}`}
 
-                            {showClearButton && (
+                            {showClearButton && selections[2] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={handleClearButtonClick}
+                                    onClick={() => setSelections([...selections.slice(2, 1)])}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -96,10 +97,10 @@ export default function ConfigurateurGauche() {
                         </button>
                         <div className="color-yellow rounded-2 color-txt-dark fs-6 p-1">{selections[1] && `${selections[1].description}  ${selections[1].price}`}
 
-                            {showClearButton && (
+                            {showClearButton && selections[1] && (
                                 <a
                                     className="btn btn-sm btn-outline-danger ms-2"
-                                    onClick={handleClearButtonClick}
+                                    onClick={() => setSelections([...selections.slice(1, 1)])}
                                 >
                                     <i className="bi bi-x-square"></i>
                                 </a>
@@ -263,9 +264,8 @@ export default function ConfigurateurGauche() {
             </div>
             <ModalChoix modalTitle={modalTitle} types={types} />
 
-            
+
         </>
     )
 }
-
 

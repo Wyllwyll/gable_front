@@ -4,7 +4,10 @@ import { BASE_URL } from "../../constant/url";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
 
-export default function OrderAffichage() {
+export default function OrderAffichage(props: {
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">>
+
+}) {
     const { selections,setSelections } = useContext(selectionsContext)
     const { user } = useContext(UserContext)
 

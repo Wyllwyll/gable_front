@@ -6,7 +6,7 @@ import { TOrders } from "../tipage/TOrders";
 import moment from 'moment';
 
 export default function UpdateOrders(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders"| "orderAffichage">>
 }) {
     const userCtx = React.useContext(UserContext);
     const { user } = userCtx
@@ -22,11 +22,11 @@ export default function UpdateOrders(props: {
             theme: 'light',
         });
     const [orders, setOrders] = useState<TOrders[]>([])
+    const [selectedOrder, setSelectedOrder] = useState<TOrders | null>(null);
 
 
 
 
-    
 
     useEffect(() => {
         const options = {
@@ -50,13 +50,27 @@ export default function UpdateOrders(props: {
                     });
                 }
             })
-    },[])
+    }, [])
+
+
+    const handleOrderSelect = (order: TOrders) => {
+        setSelectedOrder(order);
+        props.setPage("updateOrders");
+    };
+
 
 
     const tableauOrders = (orders.map((elm, key) =>
         <tr key={key}  >
             <td>{moment(elm.created_at).format("DD/MM/YYYY")}</td>
             <td>{moment(elm.updated_at).format("DD/MM/YYYY")}</td>
+            <td> <a
+                className=""
+                onClick={() => handleOrderSelect(elm)
+                }
+            >
+                <i className="bi bi-pencil"></i>
+            </a></td>
         </tr >
     ))
 
@@ -70,10 +84,9 @@ export default function UpdateOrders(props: {
             <table className="table table-hover table-responsive ">
                 <thead>
                     <tr>
-                        {/* <th scope="col">Prix</th> */}
                         <th scope="col">Date de création</th>
                         <th scope="col">Date de Modification</th>
-                        {/* <th scope="col">Action</th> */}
+                        <th scope="col">Modifier</th>
                     </tr>
 
                 </thead>

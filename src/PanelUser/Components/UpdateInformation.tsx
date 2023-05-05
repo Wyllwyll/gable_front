@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 
 
 export default function UpdateInfo(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo"| "updatePassword"| "updateOrders">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">>
+
 }) {
 
     const notifySuccess = (msg: string) =>

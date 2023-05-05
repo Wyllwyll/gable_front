@@ -16,7 +16,7 @@ import { selectionsContext } from './context/SelectionContext';
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
   const [page, setPage] = useState<
-    'Configurateur'|'Profile'| "updateInfo"| "updatePassword"| "updateOrders"
+    'Configurateur'|'Profile'| "updateInfo"| "updatePassword"| "updateOrders" | "orderAffichage"
   >('Configurateur');
   const [selections, setSelections] = useState<Tcomposants[]>([])
 
