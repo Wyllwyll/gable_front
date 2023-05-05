@@ -9,3 +9,6 @@ export const selectionsContext = React.createContext<({
         selections: [],
         setSelections: (value: Tcomposants[]) => { }
     });
+
+
+    
