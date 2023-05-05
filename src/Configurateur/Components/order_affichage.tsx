@@ -1,15 +1,19 @@
 import { useContext } from "react";
-import { selectionsContext } from "../../context/SelectionContext";
+import { SelectionContext } from "../../context/SelectionContext";
 import { BASE_URL } from "../../constant/url";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
+import { Tcomposants } from "../tipage/Tcomposants";
 
 export default function OrderAffichage(props: {
     setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">>
 
 }) {
-    const { selections,setSelections } = useContext(selectionsContext)
     const { user } = useContext(UserContext)
+    const context = useContext(SelectionContext)
+    if (!context) return null
+    const { selections, setSelections } = context
+
 
 
     const notifySuccess = (msg: string) =>
@@ -35,13 +39,15 @@ export default function OrderAffichage(props: {
             theme: 'light',
         });
 
-    const total = selections.filter(elm => elm !== undefined).map((item: any) => parseFloat(item?.price)).reduce((acc, curr) => acc + curr, 0);
+    const total = Object.values(selections)
+        .filter((elm): elm is Tcomposants => elm !== undefined)
+        .reduce((acc, curr) => acc + Number(curr.price || 0), 0);
 
 
 
-    let arrNbr = selections.filter(elm => elm !== undefined).map(elm => elm.id)
-
-
+    let arrNbr = Object.values(selections)
+        .filter((elm): elm is Tcomposants => elm !== undefined)
+        .map(elm => elm.id);
 
 
     const handleSaveClick = () => {
@@ -76,7 +82,7 @@ export default function OrderAffichage(props: {
 
 
     const handleDeleteClick = () => {
-        setSelections([]);
+        setSelections({});
     }
 
 
@@ -90,7 +96,7 @@ export default function OrderAffichage(props: {
             <h2 className="text-white ms-2">Récapitulatif : </h2>
 
             <div >
-                {selections.map((item, i) => (
+                {Object.values(selections).map((item, i) => (
 
                     <tr className="row ms-2" key={i} >
                         <td className="col">{item && `${item.description}`}</td>

@@ -1,21 +1,28 @@
 import { useContext } from "react";
 import { Tcomposants } from "../tipage/Tcomposants";
-import { selectionsContext } from "../../context/SelectionContext";
+import { SelectionContext } from "../../context/SelectionContext";
 
 
 
 
-export default function ModalChoix(props: { modalTitle: string, types: Tcomposants[]}) {
-    const {selections, setSelections} = useContext (selectionsContext)
+
+export default function ModalChoix(props: { modalTitle: string, types: Tcomposants[] }) {
+    const context = useContext(SelectionContext)
+    if (!context) return null
+    const { selections, setSelections } = context
+
+
     function setSelectedComponent(clickedElement: Tcomposants) {
-        const newSelection = [...selections];
-        newSelection[clickedElement.types.id] = clickedElement;
-        setSelections([...newSelection])
-    } 
-
+        console.log(clickedElement);
+        const newSelections = {
+            ...selections,
+            [clickedElement.types.id]: clickedElement,
+        };
+        setSelections(newSelections);
+    }
 
     const tableau = (props.types.map((elm, key) =>
-        <tr key={key}  data-bs-dismiss="modal" onClick={() =>setSelectedComponent(elm)}>
+        <tr key={key} data-bs-dismiss="modal" onClick={() => setSelectedComponent(elm)}>
             <td>{elm.description}</td>
             <td>{elm.price}</td>
         </tr >

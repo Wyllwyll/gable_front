@@ -12,4 +12,5 @@ export type Tselection = {
     9: Tcomposants,
     10: Tcomposants,
     11: Tcomposants,
+    12: null
 }

@@ -11,22 +11,28 @@ import { RegisterForm } from './Navbar/Components/Register';
 import ConfigurateurGauche from './Configurateur/Components/Configurateur_gauche';
 import ConfigurateurDroit from './Configurateur/Components/configurateur_droit';
 import { Tcomposants } from './Configurateur/tipage/Tcomposants';
-import { selectionsContext } from './context/SelectionContext';
+import { SelectionProvider, SelectionContext, } from './context/SelectionContext';
 
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
   const [page, setPage] = useState<
-    'Configurateur'|'Profile'| "updateInfo"| "updatePassword"| "updateOrders" | "orderAffichage"
+    'Configurateur' | 'Profile' | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage"
   >('Configurateur');
-  const [selections, setSelections] = useState<Tcomposants[]>([])
+  const [selections, setSelections] = useState<{ [key: string]: Tcomposants | undefined }>({});
 
-
+  const selectionContextValue = {
+    selections,
+    setSelections,
+  };
 
 
   return (
     <div className="App row mx-0 font">
-      <selectionsContext.Provider value={{ selections, setSelections }}>
-        <UserContext.Provider value={{ user, setUser }}>
+
+      <UserContext.Provider value={{ user, setUser }}>
+        <SelectionProvider value={selectionContextValue}>
+
+
           <div className='col-12 col-md-6 color-green '>
 
             <header className="App-header">
@@ -43,8 +49,8 @@ function App() {
           </div>
 
           <div className='col-12 col-md-6 color-yellow'>
-            <ConfigurateurDroit page={page} setPage={setPage}/>
-            
+            <ConfigurateurDroit page={page} setPage={setPage} />
+
           </div>
 
           <div>
@@ -53,14 +59,15 @@ function App() {
               src="/img/Logo2.svg"
               onClick={() => {
                 setPage('Configurateur');
-                
 
-            }}>
+
+              }}>
             </img>
 
           </div>
-        </UserContext.Provider>
-      </selectionsContext.Provider>
+        </SelectionProvider>
+      </UserContext.Provider>
+
     </div>
 
   );
