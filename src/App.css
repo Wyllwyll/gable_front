@@ -23,6 +23,24 @@
     background-color: #E6C24D;
 }
 
+.color-white {
+    background-color: whitesmoke;
+}
+
+.hover-color:hover {
+    background-color: #E6C24D;
+}
+
+.btn-hover:hover {
+    color: black;
+    text-decoration: underline;
+    transition: all 0.4s ease
+}
+
+
+.color-txt-white {
+    color: whitesmoke
+}
 
 .color-txt-green {
     color: #426F6A;
@@ -92,8 +110,15 @@
     top: 0.5em;
     margin-left: calc(50% - 82px);
     justify-content: center;
-
+    transition: transform 0.3s ease-in-out;
 }
+
+.logo-center:hover {
+    transform: scale(1.2);
+    
+}
+
+
 
 .modalTable {
     overflow-y: scroll;
@@ -109,5 +134,5 @@
 
 .liste-puce {
     list-style: none;
-    
+
 }

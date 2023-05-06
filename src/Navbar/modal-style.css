@@ -1,27 +1,24 @@
 .login-color {
-    background-color: #1C2942;
-    color: aliceblue;
+    background-color: #557E74;
     box-shadow: inset;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
 }
 
-.green-close {
-    background-color: #5FC2BA;
+.orange-close {
+    background-color: #E6C24D;
 }
 
 .form-control:focus {
-    color: #5FC2BA !important;
+    color: #E6C24D !important;
     background-color: #fff !important;
-    border-color: #5FC2BA !important;
+    border-color: #E6C24D !important;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(1, 88, 105, 1.25) !important;
 }
 
 .form-control {
-    border: 2px solid #5FC2BA !important;
+    border: 2px solid #E6C24D!important;
 }
-
 
 
 .modal-content-login{
@@ -29,5 +26,5 @@
 }
 
 .modal-content-register{
-    height:32em
+    height:28em
 }

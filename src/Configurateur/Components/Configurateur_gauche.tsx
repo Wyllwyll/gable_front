@@ -44,7 +44,7 @@ export default function ConfigurateurGauche() {
             <div className=" mt-5 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange " id="headingOne">
-                        <button className="accordion-button fs-4 "
+                        <button className="accordion-button fs-4 btn-hover "
                             type="button"
                             onClick={() => handleButtonClick("Processeur")}
                             data-bs-toggle="modal"
@@ -75,7 +75,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Carte-Mere")}
                             data-bs-toggle="modal"
@@ -106,7 +106,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Ventirad")}
                             data-bs-toggle="modal"
@@ -135,7 +135,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Memoire-Vive(RAM)")}
                             data-bs-toggle="modal"
@@ -165,7 +165,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Carte-Graphique")}
                             data-bs-toggle="modal"
@@ -195,7 +195,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Boitier")}
                             data-bs-toggle="modal"
@@ -225,7 +225,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Alimentation")}
                             data-bs-toggle="modal"
@@ -252,7 +252,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("SSD")}
                             data-bs-toggle="modal"
@@ -279,7 +279,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("HDD")}
                             data-bs-toggle="modal"
@@ -306,7 +306,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Carte-Son")}
                             data-bs-toggle="modal"
@@ -333,7 +333,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange" id="headingOne">
-                        <button className="accordion-button fs-4"
+                        <button className="accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Carte-Reseau")}
                             data-bs-toggle="modal"

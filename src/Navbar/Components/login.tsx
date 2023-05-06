@@ -90,12 +90,12 @@ export function LoginForm() {
                 tabIndex={-1}
             >
                 <div className="modal-dialog modal-dialog-centered  ">
-                    <div className=" modal-content modal-content-login ">
+                    <div className=" modal-content modal-content-login color-lightgreen ">
                         <div className="modal-header">
-                            <h5 className="modal-title">Identifiants de Connexion</h5>
+                            <h5 className="modal-title  ">Identifiants de Connexion</h5>
                             <button
                                 type="button"
-                                className="btn-close green-close"
+                                className="btn-close orange-close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
                                 id="close"
@@ -140,7 +140,7 @@ export function LoginForm() {
                                     <>
                                         <button
                                             type="submit"
-                                            className="btn btn-green"
+                                            className="btn btn-hover color-txt-orange fs-5"
                                         >
                                             {' '}
                                             Connexion

@@ -87,7 +87,7 @@ export default function OrderAffichage(props: {
     return (
         <div className="rounded opacity2 hauteurOrder stickyAff ">
 
-            <h2 className="text-white ms-2">Récapitulatif : </h2>
+            <h2 className="color-txt-yellow ms-2">Récapitulatif : </h2>
 
             <div >
                 {Object.values(selections).map((item, i) => (
@@ -106,11 +106,11 @@ export default function OrderAffichage(props: {
             </div>
 
             <div className="color-txt-orange">
-                <div className=" cursor" onClick={() => handleSaveClick()} >
+                <div className="btn-hover cursor" onClick={() => handleSaveClick()} >
                     Sauvegarder
                 </div>
 
-                <div className=" cursor" onClick={() => handleDeleteClick()}>
+                <div className="btn-hover cursor" onClick={() => handleDeleteClick()}>
                     Supprimer
                 </div>
             </div>
