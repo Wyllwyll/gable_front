@@ -75,14 +75,14 @@
 
 
 .stickyAff {
-    position:fixed;
+    position: fixed;
     top: 100px;
 }
 
 
 @media (max-width: 768px) {
     .stickyAff {
-        position:sticky;
+        position: sticky;
         bottom: 100px;
     }
 }
@@ -101,4 +101,13 @@
 
 .cursor {
     cursor: pointer;
+}
+
+.footer-shadow {
+    box-shadow: 0px -4px 8px 0px rgba(0, 0, 0, 0.56);
+}
+
+.liste-puce {
+    list-style: none;
+    
 }

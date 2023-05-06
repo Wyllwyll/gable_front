@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Navbar/modal-style.css';
 import './App.css';
 import './index.css';
@@ -13,6 +13,7 @@ import ConfigurateurDroit from './Configurateur/Components/configurateur_droit';
 import { Tcomposants } from './Configurateur/tipage/Tcomposants';
 import { SelectionProvider, SelectionContext, } from './context/SelectionContext';
 import { TOrders } from './PanelUser/tipage/TOrders';
+import Footer from './footer/Components/footer';
 
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
@@ -28,6 +29,21 @@ function App() {
     order,
     setOrder
   };
+
+  // Récupére l'utilisateur stocké en local storage apres chaques rendu du composant
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user'); //Recupere des données de l'utilisateur stockées
+    if (storedUser) {
+      setUser(JSON.parse(storedUser)); //Si l'utilisateur existe dans le local storage, mettre à jour le state de l'utilisateur avec ces données
+    }
+  }, []);
+
+
+  /* est exécuté chaque fois que le state de l'utilisateur change. 
+    Les données de l'utilisateur sont alors stockées dans le local storage pour maintenir la session de l'utilisateur après le rafraîchissement de la page. */
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(user));
+  }, [user]);
 
 
   return (
@@ -62,16 +78,14 @@ function App() {
               alt="logoGable"
               src="/img/Logo2.svg"
               onClick={() => {
-                setPage('Configurateur');
-
-
+                setPage('Configurateur')
               }}>
             </img>
-
+            <Footer />
           </div>
         </SelectionProvider>
       </UserContext.Provider>
-
+      
     </div>
 
   );
