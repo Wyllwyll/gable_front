@@ -11,20 +11,24 @@ import { SelectionContext } from "../../context/SelectionContext";
 
 export default function ConfigurateurGauche() {
 
-    const [modalTitle, setModalTitle] = useState<string>("");
+    const [modalTitle, setModalTitle] = useState<string>(""); // Gestion de l'état local pour le titre du modal et les types de composants
     const [types, setTypes] = useState<Tcomposants[]>([]);
+
+    // Utilisation du contexte de sélection
     const context = useContext(SelectionContext)
     if (!context) return null
     const { selections, setSelections } = context
 
+
+    // Fonction pour supprimer un élément sélectionné
     const handleSelectionClear = (key: string) => {
-        const newSelections = { ...selections };
-        delete newSelections[key];
-        setSelections(newSelections);
+        const newSelections = { ...selections }; // Crée une copie de l'objet 'selections' pour ne pas modifier directement l'état
+        delete newSelections[key];  // Supprime la sélection correspondant à la clé (key) passée en argument grace a l'operateur "delete"
+        setSelections(newSelections); // Met à jour l'état 'selections' avec l'objet modifié
     };
 
 
-
+    //ouvre le modal de Selection de Composant en ajustant son titre et charge les donnees correspondante au titre
     const handleButtonClick = (title: string) => {
         setModalTitle(title);
         fetch(`${BASE_URL}/components/type/${title}`)
@@ -54,7 +58,7 @@ export default function ConfigurateurGauche() {
                             {selections['2'] &&
                                 `${selections['2'].description}  
                             ${selections['2'].price}`}
-
+                            {/* Si un processeur est sélectionné, affiche un bouton pour supprimer la sélection, sinon il n'apparait pas */}
                             {selections['2'] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-2"

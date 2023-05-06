@@ -3,28 +3,24 @@ import { Tcomposants } from "../tipage/Tcomposants";
 import { SelectionContext } from "../../context/SelectionContext";
 
 
-
-
-
 export default function ModalChoix(props: { modalTitle: string, types: Tcomposants[] }) {
     const context = useContext(SelectionContext)
     if (!context) return null
     const { selections, setSelections } = context
 
 
+    //met à jour les sélections avec le composant cliqué
     function setSelectedComponent(clickedElement: Tcomposants) {
-        console.log("logElementSelection",clickedElement);
-        const newSelections = {
+        const newSelections = {  //crée une nouvelle sélection en copiant l'objet selections existant
             ...selections,
-            [clickedElement.types.id]: clickedElement,
+            [clickedElement.types.id]: clickedElement, //ajoute ou modifie l'élément cliqué à l'objet de la sélection en utilisant l'ID du type de composant comme clé
         };
-        console.log(newSelections);
-        
-        setSelections(newSelections);
-        
-    }
+        setSelections(newSelections);  // Met à jour les sélections avec la nouvelle sélection créée
 
+    }
+    // Génère le tableau en mappant les types sur les lignes de tableau
     const tableau = (props.types.map((elm, key) =>
+        //Chaque ligne du tableau a une fonction onClick pour définir le composant sélectionné et ferme le modal au click via data-bs-dismiss="modal"
         <tr className="cursor" key={key} data-bs-dismiss="modal" onClick={() => setSelectedComponent(elm)}>
             <td>{elm.description}</td>
             <td>{elm.price}</td>

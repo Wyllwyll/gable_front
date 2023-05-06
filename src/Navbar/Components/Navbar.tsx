@@ -9,6 +9,7 @@ export function Navbar(props: {
     >;
 }) {
 
+    // Utiliser le contexte utilisateur pour accéder aux données utilisateur
     const userData = useContext(UserContext);
 
 
@@ -29,6 +30,7 @@ export function Navbar(props: {
 
             <div className="collapse navbar-collapse " id="navbarNav">
                 <ul className="navbar-nav ">
+                    {/* Vérifier si le niveau d'accès de l'utilisateur est inférieur à 1, si oui , afficher les boutons Se Connecter et S'enregistrer */}
                     {userData.user.access_lvl < 1 ? (
                         <>
                             <li className="nav-item me-4  ">
@@ -56,6 +58,7 @@ export function Navbar(props: {
                             </li>
                         </>
                     ) : (
+                        // Si le niveau d'accès de l'utilisateur est supérieur ou égal à 1, ne rien afficher
                         ''
                     )}
 
@@ -80,6 +83,7 @@ export function Navbar(props: {
                                     href="/#"
                                     type="button"
                                     onClick={() => {
+                                        //reinitialise l'user en tant que visiteur et renvois sur la page d'accueil
                                         userData.setUser(DEFAULT_USER);
                                         props.setPage('Configurateur');
                                     }}>

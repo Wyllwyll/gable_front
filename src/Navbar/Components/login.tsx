@@ -6,8 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export function LoginForm() {
 
+    // Créer des références pour les champs email et mot de passe
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
+    // Utiliser le contexte utilisateur pour accéder aux fonctions setUser et user
     const { setUser, user } = useContext(UserContext);
 
     const notifySuccess = (msg: string) =>
@@ -36,6 +38,7 @@ export function LoginForm() {
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        // Vérifier si les champs email et mot de passe ont des valeurs avant de lancer le fetch
         if (emailRef.current?.value && passwordRef.current?.value) {
             const body = {
                 email: emailRef.current.value,
@@ -55,10 +58,10 @@ export function LoginForm() {
 
 
                     if (data.data) {
+                        // Réinitialiser les champs email et mot de passe
                         emailRef.current!.value = '';
                         passwordRef.current!.value = '';
-
-                        //setToken(data.data.a)
+                        // Mettre à jour les données utilisateur et fermer le formulaire via un timer
                         setUser(data.data);
                         setTimeout(() => {
                             document.getElementById('close')?.click();

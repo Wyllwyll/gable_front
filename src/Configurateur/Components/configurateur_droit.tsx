@@ -17,12 +17,13 @@ export default function ConfigurateurDroit(props: { page: string, setPage: React
 
 
             <div>
+                {/* Affiche le composant OrderAffichage si la page actuelle est 'Configurateur' */}
                 {props.page === 'Configurateur' && (
                     <OrderAffichage setPage={function (value: SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">): void {
-                        throw new Error("Function not implemented.");
-                    } }                    />)}
+                    }} />)}
             </div>
             <div >
+                {/* Affiche le composant Profile si la page actuelle est 'Profile' */}
                 {props.page === 'Profile' && (
                     <Profile setPage={props.setPage} page={""} />
                 )}

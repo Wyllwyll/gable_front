@@ -39,17 +39,17 @@ export default function OrderAffichage(props: {
             theme: 'light',
         });
 
-
+    // Calcul du prix total des composants sélectionnés
     const total = Object.values(selections)
-        .filter((elm): elm is Tcomposants => elm !== undefined)
-        .reduce((acc, curr) => acc + (parseFloat(curr.price.toString()||"0")), 0);
+        .filter((elm): elm is Tcomposants => elm !== undefined) // filtre les valeurs null ou undefined
+        .reduce((acc, curr) => acc + (parseFloat(curr.price.toString() || "0")), 0); // fait une somme des prix de chaque composant, acc est le total actuel, initialement défini à 0, et curr est l'élément actuel du tableau. On ajoute le prix de curr à acc, qui est ensuite renvoyé comme nouveau total pour la prochaine itération. Si le prix de l'élément actuel n'est pas un nombre valide, la valeur 0 est utilisée.
 
-
+    // Récupération des ids des composants sélectionnés
     let arrNbr = Object.values(selections)
-        .filter((elm): elm is Tcomposants => elm !== undefined)
-        .map(elm => elm.id);
+        .filter((elm): elm is Tcomposants => elm !== undefined) // Filtrage pour ne garder que les composants sélectionnés et eliminer des potentiels null
+        .map(elm => elm.id); // Extraction des id des composants sélectionnés et création d'un nouveau tableau
 
-
+    //fonction de sauvegarde de l'order avec les composants selectionnes
     const handleSaveClick = () => {
 
         const body = {

@@ -5,9 +5,11 @@ import { BASE_URL } from "../../constant/url";
 export function RegisterForm() {
     const [message, setMessage] = useState<string[]>(['']);
 
+    // Créer des références pour les champs email, mot de passe et vérification du mot de passe
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
     const passVerifRef = useRef<HTMLInputElement>(null);
+
     const notifySuccess = (msg: string,) => toast.success(msg,
         {
             position: "bottom-right",
@@ -33,8 +35,10 @@ export function RegisterForm() {
 
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+        // Empêcher le rechargement de la page lors de la soumission du formulaire
         event.preventDefault();
         if (
+            // Vérifier si les champs email, mot de passe et vérification du mot de passe ont des valeurs et si les mots de passe correspondent
             emailRef.current?.value &&
             passwordRef.current?.value &&
             passVerifRef.current?.value &&
@@ -57,11 +61,13 @@ export function RegisterForm() {
                 .then(response => response.json())
                 .then(data => {
                     if (data.data) {
+                        // Mettre à jour le message et réinitialiser les inputs
                         setMessage([data.message])
                         emailRef.current!.value = "";
                         passwordRef.current!.value = "";
                         passVerifRef.current!.value = "";
                         setTimeout(() => {
+                            // Passer au formulaire de connexion après un timer
                             document.getElementById("loginButton")?.click();
                         }, 1500);
                         notifySuccess(data.message)

@@ -13,6 +13,7 @@ export default function UpdateOrders(props: {
 }) {
     const userCtx = React.useContext(UserContext);
     const { user } = userCtx
+    // Utiliser le contexte SelectionContext pour accéder aux sélections des composants.
     const context = useContext(SelectionContext)
     const [orders, setOrders] = useState<TOrders[]>([])
     const { selections, setSelections } = context
@@ -32,7 +33,7 @@ export default function UpdateOrders(props: {
         });
 
 
-
+    // récupére la liste des Orders lors de l'affichage du composant.
     useEffect(() => {
         const options = {
             method: "GET",
@@ -59,7 +60,7 @@ export default function UpdateOrders(props: {
 
 
 
-
+    // Fonction pour gérer la sélection d'un order.
     const handleOrderSelect = (order: TOrders) => {
         const options = {
             method: "GET",
@@ -72,14 +73,25 @@ export default function UpdateOrders(props: {
             .then((response) => response.json())
             .then((data: { data: any }) => {
                 if (data) {
-                    let emptySelection: { [key: string]: Tcomposants } = {}
-                    setSelections(emptySelection)
-                    data.data.components.forEach((element: Tcomposants) => {
-                        const famille: Ttypes = element.types
-                        emptySelection[famille.id] = element
+                    let emptySelection: { [key: string]: Tcomposants } = {}  // Crée un nouvel objet vide 'emptySelection' pour stocker les composants de l'order'.
+                    setSelections(emptySelection)  // Met à jour le contexte des sélections avec cet objet vide pour réinitialiser les sélections actuelles.
+                    data.data.components.forEach((element: Tcomposants) => { // Parcoure les composants de l'order récupérée (data.data.components)
+                        const famille: Ttypes = element.types  // Récupérez la famille (type) de chaque composant, necessaire ulterieurement
+                        emptySelection[famille.id] = element // Ajoute chaque composant à l'objet 'emptySelection' en utilisant l'ID de la famille comme clé.
                     });
-                    props.setPage("Configurateur")
+                    props.setPage("Configurateur") // Charge la page "Configurateur" pour permettre à l'utilisateur de voir et de modifier les composants de son order.
+
                 } else {
+                    toast.error("Erreur lors de la récupération de l'order. Veuillez réessayer.", {
+                        position: 'bottom-right',
+                        autoClose: 1500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: 'light',
+                    });
                 }
             })
 
@@ -87,8 +99,40 @@ export default function UpdateOrders(props: {
 
 
 
+    const handleOrderDelete = (orderId: number) => {
+        const options = {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${user.access_token}`
+            },
+        };
+
+        fetch(`${BASE_URL}/orders/${orderId}`, options)
+            .then((response) => {
+                if (response.ok) {
+                    setOrders(orders.filter((order) => order.id !== orderId)); //met à jour l'état orders en filtrant et en conservant uniquement les éléments dont l'attribut id ne correspond pas à la valeur de orderId.
+                    toast.success("Order deleted successfully", {
+                        position: 'bottom-right',
+                        autoClose: 1500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: 'light',
+                    });
+                } else {
+                    notifyError("Error deleting order");
+                }
+            })
+    };
+
+    /*tableauOrders vérifie si 'orders' est un tableau avec Array.isArray(orders)
+     et si c'est le cas, elle itère sur chaque élément du tableau (chaque order) avec la méthode .map(). */
     const tableauOrders = (Array.isArray(orders) && orders.map((elm, key) =>
         <tr key={key}  >
+            {/* La date est formatée à l'aide de la bibliothèque 'moment' pour être plus lisible (format "DD/MM/YYYY") */}
             <td>{moment(elm.created_at).format("DD/MM/YYYY")}</td>
             <td>{moment(elm.updated_at).format("DD/MM/YYYY")}</td>
             <td> <a
@@ -100,7 +144,7 @@ export default function UpdateOrders(props: {
             </a>
                 <a
                     className="btn btn-sm btn-danger cursor"
-                /* onClick={() => } */
+                    onClick={() => handleOrderDelete(elm.id)}
                 >
                     <i className="bi bi-x-square"></i>
                 </a>

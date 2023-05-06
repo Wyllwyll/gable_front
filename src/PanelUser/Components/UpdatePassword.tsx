@@ -31,12 +31,13 @@ export default function UpdatePassword(props: {
             theme: 'light',
         });
     const { user, setUser } = useContext(UserContext)
+    // Gestion de l'état local pour les mots de passe
     const [pass, setPass] = useState<TUser>(
         { ...user }
     );
 
 
-
+    // gére la soumission du formulaire de mise à jour du mot de passe
     const passHandlerTextuel = (key: "password", value: string) => {
         const newPassword = { ...pass };
         newPassword[key] = value
@@ -57,6 +58,7 @@ export default function UpdatePassword(props: {
 
 
                 if (responseJson.data) {
+                    // met à jour les informations de l'utilisateur dans le contexte
                     responseJson.data.access_token = pass.access_token;
                     setUser(responseJson.data)
 
@@ -68,31 +70,31 @@ export default function UpdatePassword(props: {
                     });
                 }
             })
-        };
+    };
 
-        return (
+    return (
+        <div>
+            <h4 className="text-white ms-2">Modifiez votre Mot de Passe </h4>
+
             <div>
-                <h4 className="text-white ms-2">Modifiez votre Mot de Passe </h4>
-
-                <div>
-                    <label htmlFor="newPassword"> Nouveau Mot de Passe </label>
-                    <input
-                        name="usernewmdp"
-                        type="string"
-                        value={pass.password}
-                        onChange={(e) => passHandlerTextuel("password", e.target.value)}
-                    />
-                </div>
-
-                <div className="">
-                    <button
-                        type="button"
-                        className=""
-                        onClick={handleSaveClick}
-                    >
-                        Sauvegarder le nouveau Mot de Passe
-                    </button>
-                </div>
+                <label htmlFor="newPassword"> Nouveau Mot de Passe </label>
+                <input
+                    name="usernewmdp"
+                    type="string"
+                    value={pass.password}
+                    onChange={(e) => passHandlerTextuel("password", e.target.value)}
+                />
             </div>
-        )
+
+            <div className="">
+                <button
+                    type="button"
+                    className=""
+                    onClick={handleSaveClick}
+                >
+                    Sauvegarder le nouveau Mot de Passe
+                </button>
+            </div>
+        </div>
+    )
 }

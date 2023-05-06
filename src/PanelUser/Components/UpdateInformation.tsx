@@ -35,14 +35,17 @@ export default function UpdateInfo(props: {
         });
 
     const { user, setUser } = useContext(UserContext)
+    // Utiliser un état pour gérer les informations de l'utilisateur
     const [infos, setInfos] = useState<TUser>(
         { ...user }
     );
-    
+
+    /* fonction infosHandlerTextuel, avec deux paramètres : key, qui peut être "nom", "prenom", "adresse" ou "email",
+    et value, qui est la nouvelle valeur de la clé spécifiée. */
     const infosHandlerTextuel = (key: "nom" | "prenom" | "adresse" | "email", value: string) => {
-        const newInfos = { ...infos };
-        newInfos[key] = value
-        setInfos(newInfos);
+        const newInfos = { ...infos };// Créer une copie des informations actuelles de l'utilisateur pour ne pas modifier directement l'état d'origine.
+        newInfos[key] = value // Mettre à jour la valeur de la clé spécifiée
+        setInfos(newInfos);// Mettre à jour l'état des informations de l'utilisateur avec les nouvelles informations modifiées.
     };
 
     const handleSaveClick = () => {
