@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SelectionContext } from "../../context/SelectionContext";
 import { BASE_URL } from "../../constant/url";
 import { toast } from "react-toastify";
@@ -6,15 +6,21 @@ import { UserContext } from "../../context/UserContext";
 import { Tcomposants } from "../tipage/Tcomposants";
 
 export default function OrderAffichage(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage"| "MailContact">>
 
 }) {
+    useEffect(() => {
+        return () => {
+            setOrder(null)
+            setSelections({})
+        }
+    }, [])
+
+
     const { user } = useContext(UserContext)
     const context = useContext(SelectionContext)
     if (!context) return null
-    const { selections, setSelections } = context
-
-
+    const { selections, setSelections, order, setOrder } = context
 
     const notifySuccess = (msg: string) =>
         toast.success(msg, {
@@ -39,6 +45,7 @@ export default function OrderAffichage(props: {
             theme: 'light',
         });
 
+
     // Calcul du prix total des composants sélectionnés
     const total = Object.values(selections)
         .filter((elm): elm is Tcomposants => elm !== undefined) // filtre les valeurs null ou undefined
@@ -51,20 +58,23 @@ export default function OrderAffichage(props: {
 
     //fonction de sauvegarde de l'order avec les composants selectionnes
     const handleSaveClick = () => {
+        let method = 'POST'
+        let url = `${BASE_URL}/orders`;
+        if (order?.id) {
+            method = 'PATCH'
+            url = `${BASE_URL}/orders/${order.id}`
+        }
 
         const body = {
             componentId: arrNbr
         }
-
         const options = {
-            method: 'POST',
+            method: method,
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user.access_token}` },
             body: JSON.stringify(body)
         }
 
-
-
-        fetch(`${BASE_URL}/orders`, options)
+        fetch(url, options)
             .then((response) => response.json())
 
             .then((data) => {
@@ -85,37 +95,45 @@ export default function OrderAffichage(props: {
 
 
     return (
-        <div className="rounded opacity2 hauteurOrder stickyAff ">
+        <div className="row ">
+            <div className="col-md">
+                <div className="card hauteurOrder">
+                    <div className="card-body">
 
-            <h2 className="color-txt-yellow ms-2">Récapitulatif : </h2>
+                        <h2 className="color-txt-yellow">Récapitulatif : </h2>
 
-            <div >
-                {Object.values(selections).map((item, i) => (
+                        <div>
+                            {Object.values(selections).map((item, i) => (
+                                <table>
+                                    <tr key={i} >
+                                        <td>{item && `${item.description}`}</td>
+                                        <td>{item && `${item.price}`}</td>
+                                    </tr>
+                                </table>
+                            ))}
+                        </div>
 
-                    <tr className="row ms-2" key={i} >
-                        <td className="col">{item && `${item.description}`}</td>
-                        <td className="col">{item && `${item.price}`}</td>
-                    </tr>
-                ))}
-            </div>
 
 
+                        <div className="text-white">
+                            Total :{total} €
+                        </div>
 
-            <div className="text-white">
-                Total :{total} €
-            </div>
 
-            <div className="color-txt-orange">
-                <div className="btn-hover cursor" onClick={() => handleSaveClick()} >
-                    Sauvegarder
+                        {Object.values(selections).length ? (
+                            <>
+                                <div className="btn-hover cursor color-txt-orange" onClick={() => handleSaveClick()} >
+                                    Sauvegarder
+                                </div>
+
+                                <div className="btn-hover cursor color-txt-orange" onClick={() => handleDeleteClick()}>
+                                    Supprimer
+                                </div>
+                            </>
+                        ) : ""}
+                    </div>
                 </div>
-
-                <div className="btn-hover cursor" onClick={() => handleDeleteClick()}>
-                    Supprimer
-                </div>
             </div>
-
-
         </div>
     )
 

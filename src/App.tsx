@@ -18,7 +18,7 @@ import Footer from './footer/Components/footer';
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
   const [page, setPage] = useState<
-    'Configurateur' | 'Profile' | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage"
+    'Configurateur' | 'Profile' | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage"|"MailContact"
   >('Configurateur');
   const [selections, setSelections] = useState<{ [key: string]: Tcomposants | undefined }>({});
   const [order, setOrder] = useState<TOrders | null>(null);
@@ -47,45 +47,48 @@ function App() {
 
 
   return (
-    <div className="App row mx-0 font">
+    <div className="container-fluid">
 
       <UserContext.Provider value={{ user, setUser }}>
         <SelectionProvider value={selectionContextValue}>
 
+          <div className='row'>
+            <div className='col-md color-green '>
 
-          <div className='col-12 col-md-6 color-green '>
+              <header className="App-header">
+                <Navbar setPage={setPage} />
 
-            <header className="App-header">
-              <Navbar setPage={setPage} />
+              </header>
+              <main>
+                <div className='container-fluid'>
+                  <div className='row'>
+                    <LoginForm />
+                    <RegisterForm />
+                    <ConfigurateurGauche />
+                  </div>
+                </div>
+              </main>
+            </div>
 
-            </header>
-            <main>
+            <div className='col-md color-yellow'>
+              <ConfigurateurDroit page={page} setPage={setPage} />
 
-              <LoginForm />
-              <RegisterForm />
-              <ConfigurateurGauche />
+            </div>
 
-            </main>
-          </div>
-
-          <div className='col-12 col-md-6 color-yellow'>
-            <ConfigurateurDroit page={page} setPage={setPage} />
-
-          </div>
-
-          <div>
-            <img className='logo-center cursor'
-              alt="logoGable"
-              src="/img/Logo2.svg"
-              onClick={() => {
-                setPage('Configurateur')
-              }}>
-            </img>
-            <Footer />
+            <div>
+              <img className='logo-center cursor'
+                alt="logoGable"
+                src="/img/Logo2.svg"
+                onClick={() => {
+                  setPage('Configurateur')
+                }}>
+              </img>
+              <Footer setPage={setPage} />
+            </div>
           </div>
         </SelectionProvider>
       </UserContext.Provider>
-      
+
     </div>
 
   );

@@ -32,47 +32,49 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
 
     return (
 
-        <>
-            <div
-                className="modal fade modalTable"
-                aria-labelledby="choixModal"
-                id="choixModal"
-                tabIndex={-1}
-            >
-                <div className="modal-dialog modal-dialog-centered   ">
-                    <div className=" modal-content modal-content-login color-lightgreen  ">
-                        <div className="modal-header">
-                            <h5 className="modal-title color-txt-white fs-4">{props.modalTitle}</h5>
-                            <button
-                                type="button"
-                                className="btn-close color-orange"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                                id="close"
-                            ></button>
-                        </div>
 
-                        <div className="modal-body modalTable">
+        <div
+            className="modal fade "
+            aria-labelledby="choixModal"
+            id="choixModal"
+            tabIndex={-1}
+        >
+            <div className="modal-dialog  modal-dialog-centered">
+                <div className=" modal-content color-lightgreen">
+                    <div className="modal-header">
+                        <h5 className="modal-title color-txt-white fs-4">{props.modalTitle}</h5>
+                        <button
+                            type="button"
+                            className="btn-close color-orange"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                            id="close"
+                        ></button>
+                    </div>
 
-                            <table className="table table-hover table-responsive  ">
-                                <thead>
-                                    <tr className="color-green fs-5">
-                                        <th scope="col">Désignation</th>
-                                        <th scope="col">Prix</th>
-                                    </tr>
-                                </thead>
+                    <div className="modal-body ">
 
-                                <tbody className="table-group-divider color-yellow ">
-                                    {tableau}
-                                </tbody>
-                            </table>
+                        <table className="table table-hover table-responsive  ">
+                            <thead>
+                                <tr className="color-green fs-5">
+                                    <th scope="col">Désignation</th>
+                                    <th scope="col">Prix</th>
+                                </tr>
+                            </thead>
 
-                        </div>
-
+                            <tbody className="table-group-divider color-yellow ">
+                                {tableau}
+                                {tableau}
+                                {tableau}
+                            </tbody>
+                        </table>
 
                     </div>
+
+
                 </div>
             </div>
-        </>
+        </div>
+
     )
 }

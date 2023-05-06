@@ -9,14 +9,14 @@ import { Tcomposants } from "../../Configurateur/tipage/Tcomposants";
 import { Ttypes } from "../../Configurateur/tipage/Ttype";
 
 export default function UpdateOrders(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" |"MailContact">>
 }) {
     const userCtx = React.useContext(UserContext);
     const { user } = userCtx
     // Utiliser le contexte SelectionContext pour accéder aux sélections des composants.
     const context = useContext(SelectionContext)
     const [orders, setOrders] = useState<TOrders[]>([])
-    const { selections, setSelections } = context
+    const { selections, setSelections, order, setOrder } = context
 
 
 
@@ -73,6 +73,7 @@ export default function UpdateOrders(props: {
             .then((response) => response.json())
             .then((data: { data: any }) => {
                 if (data) {
+                    setOrder(order)
                     let emptySelection: { [key: string]: Tcomposants } = {}  // Crée un nouvel objet vide 'emptySelection' pour stocker les composants de l'order'.
                     setSelections(emptySelection)  // Met à jour le contexte des sélections avec cet objet vide pour réinitialiser les sélections actuelles.
                     data.data.components.forEach((element: Tcomposants) => { // Parcoure les composants de l'order récupérée (data.data.components)

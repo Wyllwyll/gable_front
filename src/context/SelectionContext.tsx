@@ -24,7 +24,7 @@ export const SelectionContext = React.createContext<SelectionContextType>({
 });
 // fournit les valeurs de selections et order à partir de l'objet value fourni ou d'un objet vide s'il n'est pas fourni. Il renvoie également le Provider du contexte avec les valeurs fournies.
 export const SelectionProvider: FC<SelectionProviderProps> = ({ children, value }) => {
-    const [selections, setSelections] = useState<{ [key: string]: Tcomposants | undefined }>(
+    const [selections, setSelections] = useState<{ [key: string]: Tcomposants | undefined}>(
         value?.selections ?? {}
     );
     const [order, setOrder] = useState<TOrders | null>(null);

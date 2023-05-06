@@ -5,7 +5,7 @@ import { TUser } from "../../Navbar/types/TUser";
 import { BASE_URL } from "../../constant/url";
 
 export default function UpdatePassword(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" |"MailContact">>
 
 }) {
     const notifySuccess = (msg: string) =>

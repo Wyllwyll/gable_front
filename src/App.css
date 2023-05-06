@@ -3,7 +3,7 @@
     src: local('Rubik'), url(../static/font/Rubik-SemiBoldItalic.ttf) format('truetype');
 }
 
-.font {
+body {
     font-family: 'Rubik';
 }
 
@@ -73,36 +73,28 @@
     background-image: url(/public/img/pcFond.svg);
     background-repeat: no-repeat;
     background-position: center;
-    height: 130vh
+    height: 130vh;
 }
+@media screen and(min-width:768px) {
+    .pc-backgound{
+background-size:50%;
+    }
+}
+
 
 .button-border {
     border: 1px solid #E6C24D;
     padding: 5px;
 }
 
-.opacity2 {
+.card {
     background-color: rgba(66, 111, 106, 0.9);
 }
 
 
 .hauteurOrder {
     height: calc(82vh - 5em);
-    width: 103vh;
-}
-
-
-.stickyAff {
-    position: fixed;
-    top: 100px;
-}
-
-
-@media (max-width: 768px) {
-    .stickyAff {
-        position: sticky;
-        bottom: 100px;
-    }
+    margin-top: 50px;
 }
 
 .logo-center {
@@ -118,12 +110,6 @@
     
 }
 
-
-
-.modalTable {
-    overflow-y: scroll;
-}
-
 .cursor {
     cursor: pointer;
 }
@@ -136,3 +122,7 @@
     list-style: none;
 
 }
+
+.price {
+    margin-left: auto;
+  }
