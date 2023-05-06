@@ -12,6 +12,7 @@ import ConfigurateurGauche from './Configurateur/Components/Configurateur_gauche
 import ConfigurateurDroit from './Configurateur/Components/configurateur_droit';
 import { Tcomposants } from './Configurateur/tipage/Tcomposants';
 import { SelectionProvider, SelectionContext, } from './context/SelectionContext';
+import { TOrders } from './PanelUser/tipage/TOrders';
 
 function App() {
   const [user, setUser] = useState<TUser>(DEFAULT_USER);
@@ -19,10 +20,13 @@ function App() {
     'Configurateur' | 'Profile' | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage"
   >('Configurateur');
   const [selections, setSelections] = useState<{ [key: string]: Tcomposants | undefined }>({});
+  const [order, setOrder] = useState<TOrders | null>(null);
 
   const selectionContextValue = {
     selections,
     setSelections,
+    order,
+    setOrder
   };
 
 

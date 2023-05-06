@@ -25,7 +25,7 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
     }
 
     const tableau = (props.types.map((elm, key) =>
-        <tr key={key} data-bs-dismiss="modal" onClick={() => setSelectedComponent(elm)}>
+        <tr className="cursor" key={key} data-bs-dismiss="modal" onClick={() => setSelectedComponent(elm)}>
             <td>{elm.description}</td>
             <td>{elm.price}</td>
         </tr >

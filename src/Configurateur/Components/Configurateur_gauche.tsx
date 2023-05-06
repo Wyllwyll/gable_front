@@ -38,7 +38,6 @@ export default function ConfigurateurGauche() {
 
         <>
             <div className=" mt-5 ">
-               {/*  <div>test{JSON.stringify(selections)} </div> */}
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 color-txt-orange " id="headingOne">
                         <button className="accordion-button fs-4 "
@@ -58,7 +57,7 @@ export default function ConfigurateurGauche() {
 
                             {selections['2'] && (
                                 <a
-                                    className="btn btn-sm btn-outline-danger ms-2"
+                                    className="btn btn-sm btn-danger ms-2"
                                     onClick={() => handleSelectionClear('2')}
                                 >
                                     <i className="bi bi-x-square"></i>

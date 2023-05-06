@@ -76,8 +76,6 @@ export default function OrderAffichage(props: {
                     ;
                 }
             })
-
-
     }
 
 
@@ -86,11 +84,7 @@ export default function OrderAffichage(props: {
     }
 
 
-
     return (
-
-
-
         <div className="rounded opacity2 hauteurOrder stickyAff ">
 
             <h2 className="text-white ms-2">Récapitulatif : </h2>
