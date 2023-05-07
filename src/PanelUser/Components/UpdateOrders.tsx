@@ -9,7 +9,7 @@ import { Tcomposants } from "../../Configurateur/tipage/Tcomposants";
 import { Ttypes } from "../../Configurateur/tipage/Ttype";
 
 export default function UpdateOrders(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" |"MailContact">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" | "MailContact">>
 }) {
     const userCtx = React.useContext(UserContext);
     const { user } = userCtx
@@ -135,7 +135,7 @@ export default function UpdateOrders(props: {
         <tr key={key}  >
             {/* La date est formatée à l'aide de la bibliothèque 'moment' pour être plus lisible (format "DD/MM/YYYY") */}
             <td>{moment(elm.created_at).format("DD/MM/YYYY")}</td>
-            <td>{moment(elm.updated_at).format("DD/MM/YYYY")}</td>
+            <td>{elm.updated_at ? moment(elm.updated_at).format("DD/MM/YYYY") : ""}</td>
             <td> <a
                 className="cursor"
                 onClick={() => handleOrderSelect(elm)
