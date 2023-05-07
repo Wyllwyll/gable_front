@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 
 export default function UpdateInfo(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" |"MailContact">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" | "MailContact">>
 
 }) {
 
@@ -49,6 +49,10 @@ export default function UpdateInfo(props: {
     };
 
     const handleSaveClick = () => {
+        if(!infos.email){
+            notifyError("l'adresse mail est requise");
+            return;
+        }
         const options = {
             method: "PATCH",
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user.access_token}` },
@@ -75,61 +79,79 @@ export default function UpdateInfo(props: {
     };
 
 
-
     return (
-        <div>
-            <h4 className="text-white ms-2">Modifiez vos Informations </h4>
+        <div className="row">
+            <div className="col-md">
+                <h4 className="text-white ms-2">Modifiez vos Informations </h4>
 
-            <div>
-                <label htmlFor="InfosNom"> Nom : </label>
-                <input
-                    name="userNom"
-                    type="text"
-                    value={infos.nom}
-                    onChange={(e) => infosHandlerTextuel("nom", e.target.value)}
-                />
-            </div>
+                <form>
+                    <label htmlFor="InfosNom"
+                        className="mb-1"
+                    > Nom :
+                    </label>
+                    <input
+                        className="form-control"
+                        name="userNom"
+                        type="text"
+                        value={infos.nom}
+                        onChange={(e) => infosHandlerTextuel("nom", e.target.value)}
+                    />
 
-            <div>
-                <label htmlFor="infosPrenom"> Prénom : </label>
-                <input
-                    name="userPrenom"
-                    type="string"
-                    value={infos.prenom}
-                    onChange={(e) => infosHandlerTextuel("prenom", e.target.value)}
-                />
-            </div>
 
-            <div>
-                <label htmlFor="infosEmail"> Email : </label>
-                <input
-                    name="userEmail"
-                    type="string"
-                    value={infos.email}
-                    required
-                    onChange={(e) => infosHandlerTextuel("email", e.target.value)}
+                    <div>
+                        <label htmlFor="infosPrenom"
+                            className="mb-1"
+                        > Prénom :
+                        </label>
+                        <input
+                            className="form-control mb-2"
+                            name="userPrenom"
+                            type="string"
+                            value={infos.prenom}
+                            onChange={(e) => infosHandlerTextuel("prenom", e.target.value)}
+                        />
+                    </div>
 
-                />
-            </div>
+                    <div>
+                        <label htmlFor="infosEmail"
+                            className="mb-1"
+                        > Email :
+                        </label>
+                        <input
+                            className="form-control mb-2"
+                            name="userEmail"
+                            type="email"
+                            value={infos.email}
+                            required
+                            onChange={(e) => infosHandlerTextuel("email", e.target.value)}
 
-            <div>
-                <label htmlFor="infosAdresse"> Adresse : </label>
-                <input
-                    name="userAdresse"
-                    type="string"
-                    value={infos.adresse}
-                    onChange={(e) => infosHandlerTextuel("adresse", e.target.value)}
-                />
-            </div>
+                        />
+                    </div>
 
-            <div className="">
-                <button
-                    type="button"
-                    className=""
-                    onClick={handleSaveClick}
-                >
-                    Sauvegarder les changements
-                </button>
+                    <div>
+                        <label htmlFor="infosAdresse"
+                            className="mb-1"
+                        > Adresse :
+                        </label>
+                        <input
+                            className="form-control mb-2"
+                            name="userAdresse"
+                            type="string"
+                            value={infos.adresse}
+                            onChange={(e) => infosHandlerTextuel("adresse", e.target.value)}
+                        />
+                    </div>
+
+                    <div className="d-flex justify-content-center">
+                        <button
+                            type="button"
+                            className="btn btn-hover fs-5 "
+                            onClick={handleSaveClick}
+                        >
+                            Sauvegarder les changements
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     )

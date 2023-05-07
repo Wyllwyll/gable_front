@@ -14,7 +14,7 @@ export default function Footer(props: {
             <div className="col-4 ">
                 <h6 className=" mt-2 color6">Contact</h6>
                 <div className="d-flex justify-content-center">
-                    <ul className="cursor liste-puce  list-unstyled color8 ">
+                    <ul className="cursor liste-puce  list-unstyled color8 btn-hover ">
                         <li onClick={() => {
                             props.setPage('MailContact');
                         }}>Un projet particulier? <br />

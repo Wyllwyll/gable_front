@@ -5,7 +5,7 @@ import { TUser } from "../../Navbar/types/TUser";
 import { BASE_URL } from "../../constant/url";
 
 export default function UpdatePassword(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" |"MailContact">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" | "MailContact">>
 
 }) {
     const notifySuccess = (msg: string) =>
@@ -22,7 +22,7 @@ export default function UpdatePassword(props: {
     const notifyError = (msg: string) =>
         toast.error(msg, {
             position: 'bottom-right',
-            autoClose: 1500,
+            autoClose: 2500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
@@ -46,6 +46,11 @@ export default function UpdatePassword(props: {
 
 
     const handleSaveClick = () => {
+        if (!pass.password || pass.password.length < 4) { // vérifie si la valeur de l'input est vide ou inferieur a 4 characteres
+            notifyError("Le champ Mot de Passe est requis et doit contenir au moins 4 caractères minimum.");
+            return;
+        }
+
         const options = {
             method: "PATCH",
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user.access_token}` },
@@ -72,29 +77,38 @@ export default function UpdatePassword(props: {
             })
     };
 
+
     return (
-        <div>
-            <h4 className="text-white ms-2">Modifiez votre Mot de Passe </h4>
+        <div className="row ">
+            <div className="col-md">
+                <h4 className="text-white mb-4">Modifiez votre Mot de Passe </h4>
 
-            <div>
-                <label htmlFor="newPassword"> Nouveau Mot de Passe </label>
-                <input
-                    name="usernewmdp"
-                    type="string"
-                    value={pass.password}
-                    onChange={(e) => passHandlerTextuel("password", e.target.value)}
-                />
-            </div>
+                <form>
+                    <label className="mb-2" htmlFor="newPassword"> Nouveau Mot de Passe </label>
+                    <input
+                        className="form-control mb-3"
+                        name="usernewmdp"
+                        type="password"
+                        placeholder="minimum 4 characteres"
+                        value={pass.password}
+                        onChange={(e) => passHandlerTextuel("password", e.target.value)}
+                        required
+                        minLength={4}
+                    />
 
-            <div className="">
-                <button
-                    type="button"
-                    className=""
-                    onClick={handleSaveClick}
-                >
-                    Sauvegarder le nouveau Mot de Passe
-                </button>
+
+                    <div className="d-flex justify-content-center">
+                        <button
+                            type="button"
+                            className="btn btn-hover fs-5 "
+                            onClick={handleSaveClick}
+                        >
+                            Sauvegarder le nouveau Mot de Passe
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
+
     )
 }

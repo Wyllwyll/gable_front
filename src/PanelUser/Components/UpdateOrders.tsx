@@ -136,46 +136,43 @@ export default function UpdateOrders(props: {
             {/* La date est formatée à l'aide de la bibliothèque 'moment' pour être plus lisible (format "DD/MM/YYYY") */}
             <td>{moment(elm.created_at).format("DD/MM/YYYY")}</td>
             <td>{elm.updated_at ? moment(elm.updated_at).format("DD/MM/YYYY") : "non-modifie"}</td>
-            <td> <a
-                className="cursor"
-                onClick={() => handleOrderSelect(elm)
-                }
-            >
-                <i className="bi bi-pencil"></i>
-            </a>
-                <a
-                    className="btn btn-sm btn-danger cursor"
-                    onClick={() => handleOrderDelete(elm.id)}
-                >
-                    <i className="bi bi-x-square"></i>
-                </a>
+            <td>
+                <div className="d-flex justify-content-evenly">
+                    <a
+                        className="btn btn-sm btn-primary cursor"
+                        onClick={() => handleOrderSelect(elm)}
+                    >
+                        <i className="bi bi-pencil"></i>
+                    </a>
+                    <a
+                        className="btn btn-sm btn-danger cursor"
+                        onClick={() => handleOrderDelete(elm.id)}
+                    >
+                        <i className="bi bi-x-square"></i>
+                    </a>
+                </div>
             </td>
         </tr >
     ))
 
-
-
-
     return (
         <div>
-            <h4 className="text-white ms-2">Consultez vos Configurations </h4>
+            <h4 className="text-white ms-2">Consultez vos Configurations: </h4>
+            <div className="table-responsive">
+                <table className="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Date de création</th>
+                            <th scope="col">Date de Modification</th>
+                            <th className="text-center" scope="col">Modifier/Supprimer</th>
+                        </tr>
 
-            <table className="table table-hover table-responsive ">
-                <thead>
-                    <tr>
-                        <th scope="col">Date de création</th>
-                        <th scope="col">Date de Modification</th>
-                        <th scope="col">Modifier/Supprimer</th>
-                    </tr>
-
-                </thead>
-                <tbody className="table-group-divider ">
-                    {tableauOrders}
-                </tbody>
-            </table>
-
+                    </thead>
+                    <tbody className="table-group-divider ">
+                        {tableauOrders}
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-
     )
 }
