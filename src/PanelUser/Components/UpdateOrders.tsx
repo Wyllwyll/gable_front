@@ -135,7 +135,7 @@ export default function UpdateOrders(props: {
         <tr key={key}  >
             {/* La date est formatée à l'aide de la bibliothèque 'moment' pour être plus lisible (format "DD/MM/YYYY") */}
             <td>{moment(elm.created_at).format("DD/MM/YYYY")}</td>
-            <td>{elm.updated_at ? moment(elm.updated_at).format("DD/MM/YYYY") : ""}</td>
+            <td>{elm.updated_at ? moment(elm.updated_at).format("DD/MM/YYYY") : "non-modifie"}</td>
             <td> <a
                 className="cursor"
                 onClick={() => handleOrderSelect(elm)
