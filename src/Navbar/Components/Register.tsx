@@ -93,15 +93,21 @@ export function RegisterForm() {
     }
 
     return (
-        <div className="modal fade" id="registerModal" tabIndex={-1} >
-            <div className="modal-dialog modal-dialog-centered ">
-                <div className="modal-content modal-content-register login-color ">
-                    <div className="modal-header">
-                        <h5 className="modal-title">S'enregister</h5>
-                        <button type="button" className="btn-close green-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form onSubmit={submitHandler}>
-                        <div className="modal-body login-color">
+        <form onSubmit={submitHandler}>
+            <div className="modal fade"
+                id="registerModal"
+                tabIndex={-1} >
+                <div className="modal-dialog modal-dialog-centered ">
+                    <div className="modal-content bg-color4 ">
+                        <div className="modal-header">
+                            <h5 className="modal-title">S'enregister</h5>
+                            <button type="button"
+                                className="btn-close"
+                                data-bs-dismiss="modal">
+                            </button>
+                        </div>
+
+                        <div className="modal-body bg-color4">
                             <p>
                                 <label htmlFor="exampleFormControlInput1" className="form-label">Email</label>
                                 <input ref={emailRef} type="email" className="form-control" id="inputEmailRegister" placeholder="@Email"></input>
@@ -118,16 +124,17 @@ export function RegisterForm() {
                             </p>
                         </div>
 
-                        <div className="modal-footer d-flex justify-content-center ">
+                        <div className="modal-footer justify-content-center ">
                             <button type="submit"
-                                className="btn color-txt-orange fs-5 btn-hover"
+                                className="btn  fs-5 btn-hover"
                             >
                                 Valider
                             </button>
                         </div>
-                    </form>
+
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     )
 }

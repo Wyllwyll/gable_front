@@ -9,10 +9,10 @@ export default function ConfigurateurDroit(props: { page: string, setPage: React
     return (
         <div className="pc-backgound">
 
-            <h3 className="text-center pt-3 color-txt-green ">
+            <h3 className="text-center color2 pt-3">
                 GABLE-
             </h3>
-            <h3 className="text-center color-txt-green ">
+            <h3 className="text-center color2">
                 PC CREATOR
             </h3>
 

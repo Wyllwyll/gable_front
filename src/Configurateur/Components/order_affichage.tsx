@@ -96,11 +96,11 @@ export default function OrderAffichage(props: {
 
     return (
         <div className="row ">
-            <div className="col-md">
+            <div className="col-md ">
                 <div className="card hauteurOrder">
-                    <div className="card-body">
+                    <div className="card-body ">
 
-                        <h2 className="color-txt-yellow">Récapitulatif : </h2>
+                        <h2 className="color5">Récapitulatif : </h2>
 
                         <div>
                             {Object.values(selections).map((item, i) => (
@@ -115,18 +115,18 @@ export default function OrderAffichage(props: {
 
 
 
-                        <div className="text-white">
+                        <div className="color5">
                             Total :{total} €
                         </div>
 
 
                         {Object.values(selections).length ? (
                             <>
-                                <div className="btn-hover cursor color-txt-orange" onClick={() => handleSaveClick()} >
+                                <div className="btn-hover cursor color2 " onClick={() => handleSaveClick()} >
                                     Sauvegarder
                                 </div>
 
-                                <div className="btn-hover cursor color-txt-orange" onClick={() => handleDeleteClick()}>
+                                <div className="btn-hover cursor color2 " onClick={() => handleDeleteClick()}>
                                     Supprimer
                                 </div>
                             </>

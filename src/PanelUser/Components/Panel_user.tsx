@@ -8,7 +8,7 @@ import UpdateOrders from "./UpdateOrders";
 
 export default function Profile(props: {
     page: string,
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" |"MailContact">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" | "MailContact">>
 
 }) {
     const userCtx = React.useContext(UserContext);
@@ -20,79 +20,97 @@ export default function Profile(props: {
 
 
     return (
-        <div className="row ">
-            <div className="col-md">
-                <div className="card hauteurOrder">
-                    <div className="card-body">
-                        <h2 className="color-txt-yellow">
-                            Profile
-                        </h2>
 
-                        <button
-                            type="button"
-                            className="btn-close color-orange"
-                            id="close"
-                            onClick={() => {
-                                props.setPage('Configurateur');
-                            }}>
-                        </button>
-                        {/* Option pour modifier les informations utilisateur */}
-                        <div className="color-txt-orange">
-                            <div className="cursor btn-hover" onClick={() => {
+
+        <div className="card hauteurOrder">
+            <div className="card-body">
+                <div className="d-flex justify-content-between align-items-start">
+                    <h2 className="y">
+                        Profile
+                    </h2>
+
+                    <button
+                        type="button"
+                        className="btn-close color-orange"
+                        id="close"
+                        onClick={() => {
+                            props.setPage('Configurateur');
+                        }}>
+                    </button>
+                </div>
+
+                <div className="d-flex flex-column ">
+                    <div className="col">
+                        <div className="d-flex flex-column align-items-start mt-3">
+                            {/* Option pour modifier les informations utilisateur */}
+                            <div className="cursor btn-hover mb-3" onClick={() => {
                                 setModifInfo('updateInfo'); setVisible(visible === "updateInfo" ? "" : "updateInfo")
                             }}>{visible === "updateInfo" ? "Retour" : "Modifier mes Informations"}</div>
 
-
                             {/* Option pour modifier le mot de passe utilisateur */}
-                            <div className="cursor btn-hover" onClick={() => {
+                            <div className="cursor btn-hover mb-3" onClick={() => {
                                 setModifPass('updatePassword'); setVisible(visible === "updatePassword" ? "" : "updatePassword")
                             }}>{visible === "updatePassword" ? "Retour" : "Modifier mon Mot de Passe"}</div>
-
 
                             {/* Option pour afficher les configurations(Orders) d'un utilisateur */}
                             <div className="cursor btn-hover" onClick={() => {
                                 setModifOrders('updateOrders'); setVisible(visible === "updateOrders" ? "" : "updateOrders")
                             }}>{visible === "updateOrders" ? "Retour" : "Mes Configurations"}</div>
                         </div>
+                    </div>
 
 
 
+                    <div className="spacing ">
                         {/* Afficher les informations de l'utilisateur */}
                         {visible === "" && (
-                            <div>
-                                <p> Votre Email : {user && user.email}</p>
-                                <p> Votre Nom : {user && user.nom}</p>
-                                <p>Votre Prénom : {user && user.prenom}</p>
-                                <p>Votre adresse actuelle : {user && user.adresse}</p>
+                            <div className="d-flex justify-content-center ">
+                                <ul className="liste-puce list-unstyled">
+                                    <li className="d-flex">
+                                        <p className="fw-bold me-3">Votre Email :</p>
+                                        <p className="color5">{user && user.email}</p>
+                                    </li>
+                                    <li className="d-flex">
+                                        <p className="fw-bold me-3">Votre Nom :</p>
+                                        <p className="color5">{user && user.nom}</p>
+                                    </li>
+                                    <li className="d-flex">
+                                        <p className="fw-bold me-3">Votre Prénom :</p>
+                                        <p className="color5">{user && user.prenom}</p>
+                                    </li>
+                                    <li className="d-flex">
+                                        <p className="fw-bold me-3">Votre adresse actuelle :</p>
+                                        <p className="color5">{user && user.adresse}</p>
+                                    </li>
+                                </ul>
                             </div>
                         )}
-
-
                         {/* Afficher le composant pour modifier les informations */}
                         {visible === "updateInfo" && (
-                            <div >
+                            <div>
                                 {modifInfo === 'updateInfo' && <UpdateInfo setPage={props.setPage} />}
                             </div>
                         )}
 
                         {/* Afficher le composant pour modifier le mot de passe */}
                         {visible === "updatePassword" && (
-                            <div >
+                            <div>
                                 {modifPass === 'updatePassword' && <UpdatePassword setPage={props.setPage} />}
                             </div>
                         )}
 
                         {/* Afficher le composant pour afficher les configurations */}
                         {visible === "updateOrders" && (
-                            <div >
+                            <div>
                                 {modifOrders === 'updateOrders' && <UpdateOrders setPage={props.setPage} />}
                             </div>
                         )}
                     </div>
+
+
                 </div>
             </div>
         </div>
-
 
     )
 }

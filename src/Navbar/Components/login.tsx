@@ -82,7 +82,7 @@ export function LoginForm() {
 
 
     return (
-        <>
+        <form onSubmit={submitHandler}>
             <div
                 className="modal fade"
                 aria-labelledby="loginModal"
@@ -90,35 +90,36 @@ export function LoginForm() {
                 tabIndex={-1}
             >
                 <div className="modal-dialog modal-dialog-centered  ">
-                    <div className=" modal-content modal-content-login color-lightgreen ">
+                    <div className=" modal-content bg-color4 ">
                         <div className="modal-header">
-                            <h5 className="modal-title  ">Identifiants de Connexion</h5>
+                            <h5 className="modal-title">Identifiants de Connexion</h5>
                             <button
                                 type="button"
-                                className="btn-close orange-close"
+                                className="btn-close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
                                 id="close"
                             ></button>
                         </div>
-                        <form onSubmit={submitHandler}>
-                            <div className="modal-body login-color">
+
+                        <div className="modal-body bg-color4">
+                            <div className="mb-3">
                                 <label
                                     htmlFor="exampleFormControlInput1"
                                     className="form-label"
                                 >
                                     Email
                                 </label>
-                                <p>
-                                    <input
-                                        ref={emailRef}
-                                        type="email"
-                                        className="form-control"
-                                        id="inputEmail"
-                                        placeholder="Email"
-                                    ></input>
-                                </p>
 
+                                <input
+                                    className="form-control"
+                                    ref={emailRef}
+                                    type="email"
+                                    id="inputEmail"
+                                    placeholder="Email"
+                                ></input>
+                            </div>
+                            <div className="mb-3">
                                 <label
                                     htmlFor="inputPassword"
                                     className="form-label"
@@ -127,36 +128,35 @@ export function LoginForm() {
                                 </label>
 
                                 <input
+                                    className="form-control"
                                     ref={passwordRef}
                                     type="password"
-                                    className="form-control"
                                     id="inputPassword"
                                     placeholder="password"
-                                ></input>
+                                >
+                                </input>
                             </div>
-
-                            <div className="modal-footer d-flex justify-content-center">
-                                {user.access_lvl < 1 ? (
-                                    <>
-                                        <button
-                                            type="submit"
-                                            className="btn btn-hover color-txt-orange fs-5"
-                                        >
-                                            {' '}
-                                            Connexion
-                                        </button>
-                                    </>
-                                ) : (
-                                    ''
-                                )}
-                            </div>
-                        </form>
+                        </div>
+                        <div className="modal-footer justify-content-center">
+                            {user.access_lvl < 1 ? (
+                                <button
+                                    type="submit"
+                                    className="btn btn-hover fs-5 "
+                                >
+                                    {' '}
+                                    Connexion
+                                </button>
+                            ) : (
+                                ''
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
             <div>
                 <ToastContainer />
             </div>
-        </>
+        </form>
+
     );
 }

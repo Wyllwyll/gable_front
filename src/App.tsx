@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './Navbar/modal-style.css';
 import './App.css';
 import './index.css';
 import { Navbar } from './Navbar/Components/Navbar';
@@ -53,7 +52,7 @@ function App() {
         <SelectionProvider value={selectionContextValue}>
 
           <div className='row'>
-            <div className='col-md color-green '>
+            <div className='col-md bg-color3 '>
 
               <header className="App-header">
                 <Navbar setPage={setPage} />
@@ -70,7 +69,7 @@ function App() {
               </main>
             </div>
 
-            <div className='col-md color-yellow'>
+            <div className='col-md bg-color5'>
               <ConfigurateurDroit page={page} setPage={setPage} />
 
             </div>

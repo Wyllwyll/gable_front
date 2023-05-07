@@ -1,67 +1,77 @@
 @font-face {
+    src: local('Rubik'), url(../static/font/Rubik-Medium.ttf) format('truetype');
     font-family: 'Rubik';
-    src: local('Rubik'), url(../static/font/Rubik-SemiBoldItalic.ttf) format('truetype');
 }
 
 body {
-    font-family: 'Rubik';
+    font-family: 'Rubik', Verdana;
 }
 
-.color-lightgreen {
-    background-color: #557E74;
+.color1 {
+    color: #000053;
 }
 
-.color-green {
-    background-color: #426F6A;
+.color2 {
+    color: #06286b;
 }
 
-.color-yellow {
-    background-color: #D9DBA9;
+.color3 {
+    color: #5a5386;
 }
 
-.color-orange {
-    background-color: #E6C24D;
+.color4 {
+    color: #9186a3;
 }
 
-.color-white {
-    background-color: whitesmoke;
+.color5 {
+    color: #bdb8c0;
 }
 
-.hover-color:hover {
-    background-color: #E6C24D;
+.color6 {
+    color: black; 
 }
 
-.btn-hover:hover {
-    color: black;
+.color8 {
+    color: white
+}
+
+.bg-color1 {
+    background-color: #000053;
+}
+
+.bg-color2 {
+    background-color: #06286b;
+}
+
+.bg-color3 {
+    background-color: #5a5386;
+}
+
+.bg-color4 {
+    background-color: #9186a3;
+}
+
+.bg-color5 {
+    background-color: #bdb8c0;
+}
+
+
+
+/* .btn-hover:hover {
+    color: var(--bs-color-2);
     text-decoration: underline;
     transition: all 0.4s ease
+} */
+
+/* .hover-color:hover {
+    background-color: #E6C24D;
 }
+ */
 
-
-.color-txt-white {
-    color: whitesmoke
-}
-
-.color-txt-green {
-    color: #426F6A;
-}
-
-.color-txt-yellow {
-    color: #D9DBA9;
-}
-
-
-.color-txt-orange {
-    color: #E6C24D
-}
-
-.color-txt-dark {
-    color: black
-}
-
-.color-red {
-    background-color: #ff0000;
-}
+/* .stickyAff {
+    position: sticky;
+    top: 100px;
+} */
 
 
 .App {
@@ -75,9 +85,12 @@ body {
     background-position: center;
     height: 130vh;
 }
+
+
+
 @media screen and(min-width:768px) {
-    .pc-backgound{
-background-size:50%;
+    .pc-backgound {
+        background-size: 50%;
     }
 }
 
@@ -88,7 +101,7 @@ background-size:50%;
 }
 
 .card {
-    background-color: rgba(66, 111, 106, 0.9);
+    background-color: rgba(90, 83, 134, 0.9);
 }
 
 
@@ -107,7 +120,6 @@ background-size:50%;
 
 .logo-center:hover {
     transform: scale(1.2);
-    
 }
 
 .cursor {
@@ -125,4 +137,27 @@ background-size:50%;
 
 .price {
     margin-left: auto;
-  }
+}
+
+.modal-content-login {
+    height: 20em
+}
+
+.modal-content-register {
+    height: 28em
+}
+
+.max-area {
+    max-height: 20em;
+}
+
+.spacing {
+    margin-top: 8em;
+}
+
+.contact-footer {
+    text-decoration: none;
+    overflow:hidden ;
+    /* max-width: 20px; */
+    inline-size: 8em;
+}

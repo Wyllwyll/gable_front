@@ -1,5 +1,6 @@
 import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
+import { toast } from 'react-toastify';
 
 
 interface MailContactProps {
@@ -8,34 +9,89 @@ interface MailContactProps {
 }
 export default function MailContact(props: MailContactProps) {
     const form = useRef<HTMLFormElement>(null);
+    const notifySuccess = (msg: string) =>
+        toast.success(msg, {
+            position: 'bottom-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: 'light',
+        });
+    const notifyError = (msg: string) =>
+        toast.error(msg, {
+            position: 'bottom-right',
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: 'light',
+        });
+
     const sendEmail = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
-        if (form.current) {
-            emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form.current, "YOUR_PUBLIC_KEY").then(
+        if (form.current && form.current.checkValidity()) {
+            emailjs.sendForm("contact_service", "contact_form", form.current, "TwiVwrtpKRiDwSEuW").then(
                 (result) => {
-                    console.log(result.text);
+                    notifySuccess("Message envoyé avec succès ! Nous vous repondrons au plus vite!");
                 },
                 (error) => {
-                    console.log(error.text);
+                    notifyError("Erreur lors de l'envoi du message");
                 }
             );
         } else {
-            console.error("Le formulaire est introuvable");
+            notifyError("Veuillez remplir tous les champs")
         }
     };
 
     return (
-        <div>
-            <form ref={form} onSubmit={sendEmail}>
-                <label>Name</label>
-                <input type="text" name="name" />
-                <label>Email</label>
-                <input type="email" name="email" />
-                <label>Message</label>
-                <textarea name="message" />
-                <button type="submit">Envoyer</button>
-            </form>
+        <div className="row ">
+            <div className="col-md">
+                <div className="card hauteurOrder">
+                    <div className="card-body">
+                        <div className="d-flex justify-content-between align-items-start">
+                            <h2 className="">Formulaire de contact : </h2>
+                            <button
+                                type="button"
+                                className="btn-close"
+                                id="close"
+                                onClick={() => {
+                                    props.setPage('Configurateur');
+                                }}>
+                            </button>
+                        </div>
+                        <form ref={form} onSubmit={sendEmail}>
+                            <label className="form-label">Votre nom: </label>
+                            <input className="form-control mb-3"
+                                type="text"
+                                name="user_name" required />
+
+                            <label className="form-label">Votre Email: </label>
+                            <input className="form-control mb-3"
+                                placeholder="name@example.com"
+                                type="email"
+                                name="user_email" required />
+
+                            <label className="form-label">Message: </label>
+                            <textarea className="form-control mb-5 max-area"
+                                placeholder="Decrivez votre projet au maximun (utilisation, budget, taille etc..)"
+                                name="message" required />
+
+                            <div className="d-flex justify-content-center">
+                                <button className="btn btn-hover fs-5 "
+                                    type="submit">
+                                    Envoyer
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

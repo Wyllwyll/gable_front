@@ -21,9 +21,7 @@ export function Navbar(props: {
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+>
                 <span className="navbar-toggler-icon color-orange"></span>
             </button>
 
@@ -34,7 +32,7 @@ export function Navbar(props: {
                     {userData.user.access_lvl < 1 ? (
                         <>
                             <li className="nav-item me-4  ">
-                                <a className="nav-link color-txt-orange border-bottom border-warning "
+                                <a className="nav-link border-bottom "
                                     href="/#"
                                     data-bs-toggle="modal"
                                     data-bs-target="#loginModal"
@@ -47,7 +45,7 @@ export function Navbar(props: {
 
 
                             <li className="nav-item me-4">
-                                <a className="nav-link color-txt-orange border-bottom border-warning"
+                                <a className="nav-link border-bottom"
                                     href="/#"
                                     data-bs-toggle="modal"
                                     data-bs-target="#registerModal"
@@ -65,8 +63,7 @@ export function Navbar(props: {
                     {userData.user.access_lvl > 0 ? (
                         <>
                             <li className="nav-item me-4">
-                                <a className="nav-link color-txt-orange border-bottom border-warning "
-                                    aria-current="page"
+                                <a className="nav-link border-bottom  "
                                     href="/#"
                                     onClick={() => {
                                         props.setPage('Profile');
@@ -78,8 +75,7 @@ export function Navbar(props: {
                             </li>
 
                             <li className="nav-item me-4">
-                                <a className="nav-link color-txt-orange border-bottom border-warning "
-                                    aria-current="page"
+                                <a className="nav-link border-bottom  "
                                     href="/#"
                                     type="button"
                                     onClick={() => {
