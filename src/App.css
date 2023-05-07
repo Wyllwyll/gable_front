@@ -62,16 +62,6 @@ body {
     transition: all 0.4s ease
 } 
 
-/* .hover-color:hover {
-    background-color: #E6C24D;s
-}
- */
-
-/* .stickyAff {
-    position: sticky;
-    top: 100px;
-} */
-
 
 .App {
     height: 100vh;
@@ -101,7 +91,7 @@ body {
 
 
 .hauteurOrder {
-    height: calc(82vh - 5em);
+    min-height: calc(82vh - 5em);
     margin-top: 50px;
 }
 

@@ -118,23 +118,25 @@ export default function OrderAffichage(props: {
                                 ))}
                             </tbody>
                         </table>
+                        <div className="d-flex justify-content-between">
 
-                        <div className="color5">
-                            Total :{total} €
+                            {Object.values(selections).length ? (
+                                <>
+                                    <div className="btn-hover cursor color2 fs-5 " onClick={() => handleSaveClick()} >
+                                        Sauvegarder
+                                    </div>
+
+                                    <div className="btn-hover cursor color2 fs-5 " onClick={() => handleDeleteClick()}>
+                                        Supprimer
+                                    </div>
+                                </>
+                            ) : ""}
+
+                            <div className="color5 fs-4">
+                                Total : {total} €
+                            </div>
+
                         </div>
-
-
-                        {Object.values(selections).length ? (
-                            <>
-                                <div className="btn-hover cursor color2 " onClick={() => handleSaveClick()} >
-                                    Sauvegarder
-                                </div>
-
-                                <div className="btn-hover cursor color2 " onClick={() => handleDeleteClick()}>
-                                    Supprimer
-                                </div>
-                            </>
-                        ) : ""}
                     </div>
                 </div>
             </div>
