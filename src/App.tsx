@@ -10,7 +10,7 @@ import { RegisterForm } from './Navbar/Components/Register';
 import ConfigurateurGauche from './Configurateur/Components/Configurateur_gauche';
 import ConfigurateurDroit from './Configurateur/Components/configurateur_droit';
 import { Tcomposants } from './Configurateur/tipage/Tcomposants';
-import { SelectionProvider, SelectionContext, } from './context/SelectionContext';
+import { SelectionProvider } from './context/SelectionContext';
 import { TOrders } from './PanelUser/tipage/TOrders';
 import Footer from './footer/Components/footer';
 

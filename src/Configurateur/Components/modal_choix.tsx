@@ -64,7 +64,6 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
                             <tbody className="table-group-divider bg-color5 ">
                                 {tableau}
                                 {tableau}
-                                {tableau}
                             </tbody>
                         </table>
 

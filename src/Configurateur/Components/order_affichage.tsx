@@ -6,7 +6,7 @@ import { UserContext } from "../../context/UserContext";
 import { Tcomposants } from "../tipage/Tcomposants";
 
 export default function OrderAffichage(props: {
-    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage"| "MailContact">>
+    setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" | "MailContact">>
 
 }) {
     useEffect(() => {
@@ -101,19 +101,23 @@ export default function OrderAffichage(props: {
                     <div className="card-body ">
 
                         <h2 className="color5">Récapitulatif : </h2>
+                        <table className="table table-hover table-responsive  ">
+                            <thead>
+                                <tr className="bg-color3 fs-5">
+                                    <th scope="col">Désignation</th>
+                                    <th scope="col">Prix</th>
+                                </tr>
+                            </thead>
 
-                        <div>
-                            {Object.values(selections).map((item, i) => (
-                                <table>
+                            <tbody className="table-group-divider bg-color5 ">
+                                {Object.values(selections).map((item, i) => (
                                     <tr key={i} >
                                         <td>{item && `${item.description}`}</td>
                                         <td>{item && `${item.price}`}</td>
                                     </tr>
-                                </table>
-                            ))}
-                        </div>
-
-
+                                ))}
+                            </tbody>
+                        </table>
 
                         <div className="color5">
                             Total :{total} €
