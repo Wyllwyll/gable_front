@@ -118,7 +118,7 @@ export default function OrderAffichage(props: {
                                 ))}
                             </tbody>
                         </table>
-                        <div className="d-flex justify-content-between">
+                        <div className="d-flex justify-content-between flex-wrap">
 
                             {Object.values(selections).length ? (
                                 <>
