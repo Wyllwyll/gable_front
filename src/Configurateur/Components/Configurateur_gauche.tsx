@@ -78,7 +78,7 @@ export default function ConfigurateurGauche() {
                 </div>
             </div>
 
-            <div className=" mt-3 ">
+            <div className=" mt-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -116,7 +116,7 @@ export default function ConfigurateurGauche() {
                 </div>
             </div>
 
-            <div className=" mt-3 ">
+            <div className=" mt-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -154,7 +154,7 @@ export default function ConfigurateurGauche() {
                 </div>
             </div>
 
-            <div className=" mt-3 ">
+            <div className=" mt-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -193,7 +193,7 @@ export default function ConfigurateurGauche() {
             </div>
 
 
-            <div className=" mt-3 ">
+            <div className=" mt-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -231,7 +231,7 @@ export default function ConfigurateurGauche() {
                 </div>
             </div>
 
-            <div className=" mt-3 ">
+            <div className=" mt-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -269,7 +269,7 @@ export default function ConfigurateurGauche() {
                 </div>
             </div>
 
-            <div className=" mt-3 ">
+            <div className=" mt-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -307,7 +307,7 @@ export default function ConfigurateurGauche() {
                 </div>
             </div>
 
-            <div className=" mt-3 ">
+            <div className=" mt-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -345,7 +345,7 @@ export default function ConfigurateurGauche() {
                 </div>
             </div>
 
-            <div className=" mt-3 ">
+            <div className=" mt-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -383,7 +383,7 @@ export default function ConfigurateurGauche() {
                 </div>
             </div>
 
-            <div className=" mt-3 ">
+            <div className=" mt-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -421,7 +421,7 @@ export default function ConfigurateurGauche() {
                 </div>
             </div>
 
-            <div className=" my-3 ">
+            <div className=" my-4 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
