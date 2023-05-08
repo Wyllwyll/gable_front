@@ -56,7 +56,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-beetwen align-items-center">
                             {selections['2'] &&
                                 `${selections["2"].description}  
-                                ${selections["2"].price}`}
+                                ${selections["2"].price} €`}
 
                             {selections['2'] && (
                                 <a
@@ -86,7 +86,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center">
                             {selections["1"] &&
                                 `${selections["1"].description}  
-                            ${selections["1"].price}`}
+                            ${selections["1"].price} €`}
 
                             {selections["1"] && (
                                 <a
@@ -116,7 +116,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2  fs-6 p-1 d-flex justify-content-between align-items-center">
                             {selections["5"]
                                 && `${selections["5"].description}  
-                         ${selections["5"].price}`}
+                         ${selections["5"].price} €`}
                             {selections["5"] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-auto"
@@ -145,7 +145,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center"> {
                             selections["4"] &&
                             `${selections["4"].description}  
-                        ${selections["4"].price}`}
+                        ${selections["4"].price} €`}
                             {selections["4"] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-auto"
@@ -174,7 +174,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center"> {
                             selections["6"] &&
                             `${selections["6"].description}  
-                        ${selections["6"].price}`}
+                        ${selections["6"].price} €`}
                             {selections["6"] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-auto"
@@ -203,7 +203,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center"> {
                             selections["7"] &&
                             `${selections["7"].description}  
-                         ${selections["7"].price}`}
+                         ${selections["7"].price} €`}
                             {selections["7"] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-auto"
@@ -232,7 +232,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center">
                             {selections["8"] &&
                                 `${selections["8"].description}  
-                        ${selections["8"].price}`}
+                        ${selections["8"].price} €`}
                             {selections["8"] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-auto"
@@ -261,7 +261,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center">
                             {selections["9"] &&
                                 `${selections["9"].description} 
-                         ${selections["9"].price}`}
+                         ${selections["9"].price} €`}
                             {selections["9"] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-auto"
@@ -290,7 +290,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center">
                             {selections["10"] &&
                                 `${selections["10"].description}  
-                        ${selections["10"].price}`}
+                        ${selections["10"].price} €`}
                             {selections["10"] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-auto"
@@ -319,7 +319,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center ">
                             {selections["11"] &&
                                 `${selections["11"].description}  
-                        ${selections["11"].price}`}
+                        ${selections["11"].price} €`}
                             {selections["11"] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-auto"
@@ -348,7 +348,7 @@ export default function ConfigurateurGauche() {
                         <div className="bg-color5 rounded-2 fs-6 p-1 mb-5 d-flex justify-content-between align-items-center">
                             {selections["3"] &&
                                 `${selections["3"].description}  
-                        ${selections["3"].price}`}
+                        ${selections["3"].price} €`}
                             {selections["3"] && (
                                 <a
                                     className="btn btn-sm btn-danger ms-auto"

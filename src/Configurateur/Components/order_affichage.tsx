@@ -113,7 +113,7 @@ export default function OrderAffichage(props: {
                                 {Object.values(selections).map((item, i) => (
                                     <tr key={i} >
                                         <td>{item && `${item.description}`}</td>
-                                        <td>{item && `${item.price}`}</td>
+                                        <td>{item && `${item.price} €`}</td>
                                     </tr>
                                 ))}
                             </tbody>
