@@ -23,7 +23,7 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
         //Chaque ligne du tableau a une fonction onClick pour définir le composant sélectionné et ferme le modal au click via data-bs-dismiss="modal"
         <tr className="cursor" key={key} data-bs-dismiss="modal" onClick={() => setSelectedComponent(elm)}>
             <td>{elm.description}</td>
-            <td>{elm.price} €</td>
+            <td className="text-end">{elm.price} €</td>
         </tr >
     ))
 
@@ -53,11 +53,11 @@ export default function ModalChoix(props: { modalTitle: string, types: Tcomposan
 
                     <div className="modal-body ">
 
-                        <table className="table table-hover table-responsive  ">
+                        <table className="table table-hover table-responsive table-striped  ">
                             <thead>
                                 <tr className="bg-color3 fs-5">
                                     <th scope="col">Désignation</th>
-                                    <th scope="col">Prix</th>
+                                    <th scope="col ">Prix</th>
                                 </tr>
                             </thead>
 

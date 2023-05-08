@@ -39,7 +39,6 @@ export default function ConfigurateurGauche() {
     };
 
     return (
-
         <>
             <div className=" mt-5 ">
                 <div className="accordion-item">
@@ -53,24 +52,33 @@ export default function ConfigurateurGauche() {
                             Processeur
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-beetwen align-items-center">
-                            {selections['2'] &&
-                                `${selections["2"].description}  
-                                ${selections["2"].price} €`}
-                            {selections['2'] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear('2')}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
-
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['2'] && selections["2"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['2'] && `${selections["2"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['2'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('2')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div className="mt-5 " id="accordionExample">
+
+            <div className=" mt-3 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -82,25 +90,33 @@ export default function ConfigurateurGauche() {
                             Carte-Mere
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center">
-                            {selections["1"] &&
-                                `${selections["1"].description}  
-                            ${selections["1"].price} €`}
-
-                            {selections["1"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("1")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['1'] && selections["1"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['1'] && `${selections["1"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['1'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('1')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="mt-5 " id="accordionExample">
+            <div className=" mt-3 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -112,24 +128,33 @@ export default function ConfigurateurGauche() {
                             Ventirad
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2  fs-6 p-1 d-flex justify-content-between align-items-center">
-                            {selections["5"]
-                                && `${selections["5"].description}  
-                         ${selections["5"].price} €`}
-                            {selections["5"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("5")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['5'] && selections["5"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['5'] && `${selections["5"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['5'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('5')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="mt-5 " id="accordionExample">
+            <div className=" mt-3 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -138,27 +163,37 @@ export default function ConfigurateurGauche() {
                             data-bs-toggle="modal"
                             data-bs-target="#choixModal"
                         >
-                            Memoire Vive RAM
+                            Memoire-Vive(RAM)
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center"> {
-                            selections["4"] &&
-                            `${selections["4"].description}  
-                        ${selections["4"].price} €`}
-                            {selections["4"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("4")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['4'] && selections["4"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['4'] && `${selections["4"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['4'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('4')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="mt-5 " id="accordionExample">
+
+            <div className=" mt-3 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -167,29 +202,38 @@ export default function ConfigurateurGauche() {
                             data-bs-toggle="modal"
                             data-bs-target="#choixModal"
                         >
-                            Carte Graphique
+                            Carte-Graphique
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center"> {
-                            selections["6"] &&
-                            `${selections["6"].description}  
-                        ${selections["6"].price} €`}
-                            {selections["6"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("6")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['6'] && selections["6"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['6'] && `${selections["6"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['6'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('6')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="mt-5 " id="accordionExample">
+            <div className=" mt-3 ">
                 <div className="accordion-item">
-                    <h2 className="accordion-header mx-0" id="headingOne">
+                    <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Boitier")}
@@ -199,24 +243,33 @@ export default function ConfigurateurGauche() {
                             Boitier
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center"> {
-                            selections["7"] &&
-                            `${selections["7"].description}  
-                         ${selections["7"].price} €`}
-                            {selections["7"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("7")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['7'] && selections["7"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['7'] && `${selections["7"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['7'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('7')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-            <div className="mt-5 " id="accordionExample">
+
+            <div className=" mt-3 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -228,24 +281,33 @@ export default function ConfigurateurGauche() {
                             Alimentation
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center">
-                            {selections["8"] &&
-                                `${selections["8"].description}  
-                        ${selections["8"].price} €`}
-                            {selections["8"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("8")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['8'] && selections["8"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['8'] && `${selections["8"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['8'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('8')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-            <div className="mt-5 " id="accordionExample">
+
+            <div className=" mt-3 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -257,24 +319,33 @@ export default function ConfigurateurGauche() {
                             SSD
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center">
-                            {selections["9"] &&
-                                `${selections["9"].description} 
-                         ${selections["9"].price} €`}
-                            {selections["9"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("9")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['9'] && selections["9"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['9'] && `${selections["9"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['9'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('9')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="mt-5 " id="accordionExample">
+            <div className=" mt-3 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
@@ -286,26 +357,35 @@ export default function ConfigurateurGauche() {
                             HDD
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center">
-                            {selections["10"] &&
-                                `${selections["10"].description}  
-                        ${selections["10"].price} €`}
-                            {selections["10"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("10")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['10'] && selections["10"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['10'] && `${selections["10"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['10'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('10')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-            <div className="mt-5 " id="accordionExample">
+
+            <div className=" mt-3 ">
                 <div className="accordion-item">
-                    <h2 className="accordion-header mx-0" id="headingOne">
+                    <h2 className="accordion-header mx-0 " id="headingOne">
                         <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Carte-Son")}
@@ -315,27 +395,36 @@ export default function ConfigurateurGauche() {
                             Carte-Son
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 d-flex justify-content-between align-items-center ">
-                            {selections["11"] &&
-                                `${selections["11"].description}  
-                        ${selections["11"].price} €`}
-                            {selections["11"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("11")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['11'] && selections["11"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['11'] && `${selections["11"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['11'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('11')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="mt-5 " id="accordionExample">
+            <div className=" my-3 ">
                 <div className="accordion-item">
-                    <h2 className="accordion-header mx-0  " id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover color2 "
+                    <h2 className="accordion-header mx-0 " id="headingOne">
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Carte-Reseau")}
                             data-bs-toggle="modal"
@@ -344,26 +433,85 @@ export default function ConfigurateurGauche() {
                             Carte-Reseau
                             <i className="bi bi-plus-square m-2 color5"></i>
                         </button>
-                        <div className="bg-color5 rounded-2 fs-6 p-1 mb-5 d-flex justify-content-between align-items-center">
-                            {selections["3"] &&
-                                `${selections["3"].description}  
-                        ${selections["3"].price} €`}
-                            {selections["3"] && (
-                                <button
-                                    className="btn btn-sm btn-danger ms-auto"
-                                    onClick={() => handleSelectionClear("3")}
-                                >
-                                    <i className="bi bi-x-square"></i>
-                                </button>
-                            )}
-                        </div>
                     </h2>
+                    <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                        <div className="container-fluid">
+                            <div className="row justify-content-beetwen align-items-center">
+                                <div className="col">
+                                    {selections['3'] && selections["3"].description}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['3'] && `${selections["3"].price} €`}
+                                </div>
+                                <div className="col-2 text-end">
+                                    {selections['3'] && (
+                                        <button
+                                            className="btn btn-sm btn-danger"
+                                            onClick={() => handleSelectionClear('3')}
+                                        >
+                                            <i className="bi bi-x-square"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <ModalChoix modalTitle={modalTitle} types={types} />
 
+            <ModalChoix modalTitle={modalTitle} types={types} />
 
         </>
     )
 }
 
+{/* map a tester pour iterer les categories    {[
+                    {
+                        id: '2',
+                        label: 'Processeur',
+                        identifier: 'Processeur'
+                    },
+                    {
+                        id: '4',
+                        label: 'Mémoire RAM',
+                        identifier: 'Memoire-Vive(RAM)'
+                    }
+                ].map(categorie => {
+                    return (
+                    <div className="accordion-item">
+                        <h2 className="accordion-header mx-0 " id="headingOne">
+                            <button className="btn btn-link accordion-button fs-4 btn-hover"
+                                type="button"
+                                onClick={() => handleButtonClick(categorie.identifier)}
+                                data-bs-toggle="modal"
+                                data-bs-target="#choixModal"
+                            >
+                                {categorie.label}
+                                <i className="bi bi-plus-square m-2 color5"></i>
+                            </button>
+                        </h2>
+                        <div className="accordion-collapse bg-color5 rounded-2 fs-6 p-1">
+                            <div className="container-fluid">
+                                <div className="row justify-content-beetwen align-items-center">
+                                    <div className="col">
+                                        {selections[categorie.id] && (`${selections[categorie.id].description}`)}
+                                    </div>
+                                    <div className="col-2 text-end">
+                                        {selections[categorie.id] && (`${selections[categorie.id].price} €`)}
+                                    </div>
+                                    <div className="col-2 text-end">
+                                        {selections[categorie.id] && (
+                                            <button
+                                                className="btn btn-sm btn-danger"
+                                                onClick={() => handleSelectionClear(categorie.id)}
+                                            >
+                                                <i className="bi bi-x-square"></i>
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                })} */}

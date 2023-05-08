@@ -103,25 +103,25 @@ export default function OrderAffichage(props: {
                     <div className="card-body pc-backgound">
 
                         <h2 className="color5">Récapitulatif : </h2>
-                        <table className="table table-hover table-responsive  ">
+                        <table className="table table-hover table-responsive ">
                             <thead>
                                 <tr className="bg-color3 fs-5">
                                     <th scope="col">Désignation</th>
-                                    <th scope="col">Prix</th>
+                                    <th className="text-end" scope="col ">Prix</th>
                                 </tr>
                             </thead>
 
-                            <tbody className="table-group-divider bg-color5 ">
+                            <tbody className="container-fluid table-group-divider bg-color5 ">
                                 {Object.values(selections).map((item, i) => (
                                     <tr key={i} >
                                         <td>{item && `${item.description}`}</td>
-                                        <td>{item && `${item.price} €`}</td>
+                                        <td className="text-end">{item && `${item.price} €`}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
-                        <div className="d-flex justify-content-between flex-wrap">
 
+                        <div className="d-flex justify-content-between flex-wrap">
                             {Object.values(selections).length ? (
                                 <>
                                     <button className=" btn btn-link btn-hover color2 fs-5 " onClick={() => handleSaveClick()} >
