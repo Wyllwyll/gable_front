@@ -16,7 +16,7 @@ export default function UpdateOrders(props: {
     // Utiliser le contexte SelectionContext pour accéder aux sélections des composants.
     const context = useContext(SelectionContext)
     const [orders, setOrders] = useState<TOrders[]>([])
-    const { selections, setSelections, order, setOrder } = context
+    const { setSelections, setOrder } = context
 
 
 
@@ -56,7 +56,7 @@ export default function UpdateOrders(props: {
                     });
                 }
             })
-    }, [])
+    }, [user.access_token])
 
 
 
@@ -138,18 +138,18 @@ export default function UpdateOrders(props: {
             <td>{elm.updated_at ? moment(elm.updated_at).format("DD/MM/YYYY") : "non-modifie"}</td>
             <td>
                 <div className="d-flex justify-content-evenly">
-                    <a
+                    <button 
                         className="btn btn-sm btn-primary cursor"
                         onClick={() => handleOrderSelect(elm)}
                     >
                         <i className="bi bi-pencil"></i>
-                    </a>
-                    <a
+                    </button>
+                    <button 
                         className="btn btn-sm btn-danger cursor"
                         onClick={() => handleOrderDelete(elm.id)}
                     >
                         <i className="bi bi-x-square"></i>
-                    </a>
+                    </button>
                 </div>
             </td>
         </tr >

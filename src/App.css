@@ -1,3 +1,4 @@
+
 @font-face {
     src: local('Rubik'), url(../static/font/Rubik-Medium.ttf) format('truetype');
     font-family: 'Rubik';
@@ -55,9 +56,12 @@ body {
     background-color: #bdb8c0;
 }
 
-
+.btn-link{
+    text-decoration: none; 
+}
 
 .btn-hover:hover {
+    color: #bdb8c0;
     text-decoration: underline;
     transition: all 0.4s ease
 } 
@@ -71,8 +75,9 @@ body {
 .pc-backgound {
     background-image: url(/public/img/pcFond.svg);
     background-repeat: no-repeat;
-    background-position: center;
-    height: 130vh;
+    background-position: center top 7em;
+    background-size: contain;
+  
 }
 
 
@@ -145,6 +150,5 @@ body {
 .contact-footer {
     text-decoration: none;
     overflow:hidden ;
-    /* max-width: 20px; */
     inline-size: 8em;
 }

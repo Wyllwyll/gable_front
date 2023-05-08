@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { SelectionContext } from "../../context/SelectionContext";
 import { BASE_URL } from "../../constant/url";
 import { toast } from "react-toastify";
@@ -9,18 +9,20 @@ export default function OrderAffichage(props: {
     setPage: React.Dispatch<React.SetStateAction<"Configurateur" | "Profile" | "updateInfo" | "updatePassword" | "updateOrders" | "orderAffichage" | "MailContact">>
 
 }) {
+    const { user } = useContext(UserContext)
+    const context = useContext(SelectionContext)
+    const { selections, setSelections, order, setOrder } = context
+
     useEffect(() => {
         return () => {
             setOrder(null)
             setSelections({})
         }
-    }, [])
+    }, [setOrder, setSelections])
 
 
-    const { user } = useContext(UserContext)
-    const context = useContext(SelectionContext)
-    if (!context) return null
-    const { selections, setSelections, order, setOrder } = context
+
+
 
     const notifySuccess = (msg: string) =>
         toast.success(msg, {
@@ -98,7 +100,7 @@ export default function OrderAffichage(props: {
         <div className="row ">
             <div className="col-md ">
                 <div className="card hauteurOrder">
-                    <div className="card-body ">
+                    <div className="card-body pc-backgound">
 
                         <h2 className="color5">Récapitulatif : </h2>
                         <table className="table table-hover table-responsive  ">
@@ -122,13 +124,13 @@ export default function OrderAffichage(props: {
 
                             {Object.values(selections).length ? (
                                 <>
-                                    <div className="btn-hover cursor color2 fs-5 " onClick={() => handleSaveClick()} >
+                                    <button className=" btn btn-link btn-hover color2 fs-5 " onClick={() => handleSaveClick()} >
                                         Sauvegarder
-                                    </div>
+                                    </button>
 
-                                    <div className="btn-hover cursor color2 fs-5 " onClick={() => handleDeleteClick()}>
+                                    <button className=" btn btn-link btn-hover color2 fs-5 " onClick={() => handleDeleteClick()}>
                                         Supprimer
-                                    </div>
+                                    </button>
                                 </>
                             ) : ""}
 

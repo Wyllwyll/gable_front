@@ -1,9 +1,8 @@
-import { useRef, useState } from "react";
+import { useRef} from "react";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../constant/url";
 
 export function RegisterForm() {
-    const [message, setMessage] = useState<string[]>(['']);
 
     // Créer des références pour les champs email, mot de passe et vérification du mot de passe
     const emailRef = useRef<HTMLInputElement>(null);
@@ -62,7 +61,6 @@ export function RegisterForm() {
                 .then(data => {
                     if (data.data) {
                         // Mettre à jour le message et réinitialiser les inputs
-                        setMessage([data.message])
                         emailRef.current!.value = "";
                         passwordRef.current!.value = "";
                         passVerifRef.current!.value = "";

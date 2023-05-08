@@ -32,27 +32,25 @@ export function Navbar(props: {
                     {userData.user.access_lvl < 1 ? (
                         <>
                             <li className="nav-item me-4  ">
-                                <a className="nav-link border-bottom "
-                                    href="/#"
+                                <button className="btn btn-link btn-hover color2 border-bottom "
                                     data-bs-toggle="modal"
                                     data-bs-target="#loginModal"
                                     id="loginButton">
                                     {' '}
                                     Se Connecter
-                                </a>
+                                </button>
                             </li>
 
 
 
                             <li className="nav-item me-4">
-                                <a className="nav-link border-bottom"
-                                    href="/#"
+                                <button className="btn btn-link btn-hover color2 border-bottom"
                                     data-bs-toggle="modal"
                                     data-bs-target="#registerModal"
                                     id="registerButton">
                                     {' '}
                                     S'enregistrer
-                                </a>
+                                </button>
                             </li>
                         </>
                     ) : (
@@ -63,20 +61,18 @@ export function Navbar(props: {
                     {userData.user.access_lvl > 0 ? (
                         <>
                             <li className="nav-item me-4">
-                                <a className="nav-link border-bottom  "
-                                    href="/#"
+                                <button className="btn btn-link btn-hover color2 border-bottom  "
                                     onClick={() => {
                                         props.setPage('Profile');
 
                                     }}>
 
                                     Profil
-                                </a>
+                                </button>
                             </li>
 
                             <li className="nav-item me-4">
-                                <a className="nav-link border-bottom  "
-                                    href="/#"
+                                <button className="btn btn-link btn-hover color2 border-bottom  "
                                     type="button"
                                     onClick={() => {
                                         //reinitialise l'user en tant que visiteur et renvois sur la page d'accueil
@@ -84,7 +80,7 @@ export function Navbar(props: {
                                         props.setPage('Configurateur');
                                     }}>
                                     Deconnexion
-                                </a>
+                                </button>
                             </li>
                         </>
                     ) : (

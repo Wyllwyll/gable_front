@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import ModalChoix from "./modal_choix";
 import { BASE_URL } from "../../constant/url";
 import { Tcomposants } from "../tipage/Tcomposants";
@@ -44,7 +44,7 @@ export default function ConfigurateurGauche() {
             <div className=" mt-5 ">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Processeur")}
                             data-bs-toggle="modal"
@@ -57,14 +57,13 @@ export default function ConfigurateurGauche() {
                             {selections['2'] &&
                                 `${selections["2"].description}  
                                 ${selections["2"].price} €`}
-
                             {selections['2'] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear('2')}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -74,7 +73,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Carte-Mere")}
                             data-bs-toggle="modal"
@@ -89,12 +88,12 @@ export default function ConfigurateurGauche() {
                             ${selections["1"].price} €`}
 
                             {selections["1"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("1")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -104,7 +103,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Ventirad")}
                             data-bs-toggle="modal"
@@ -118,12 +117,12 @@ export default function ConfigurateurGauche() {
                                 && `${selections["5"].description}  
                          ${selections["5"].price} €`}
                             {selections["5"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("5")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -133,7 +132,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Memoire-Vive(RAM)")}
                             data-bs-toggle="modal"
@@ -147,12 +146,12 @@ export default function ConfigurateurGauche() {
                             `${selections["4"].description}  
                         ${selections["4"].price} €`}
                             {selections["4"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("4")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -162,7 +161,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Carte-Graphique")}
                             data-bs-toggle="modal"
@@ -176,12 +175,12 @@ export default function ConfigurateurGauche() {
                             `${selections["6"].description}  
                         ${selections["6"].price} €`}
                             {selections["6"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("6")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -191,7 +190,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0" id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Boitier")}
                             data-bs-toggle="modal"
@@ -205,12 +204,12 @@ export default function ConfigurateurGauche() {
                             `${selections["7"].description}  
                          ${selections["7"].price} €`}
                             {selections["7"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("7")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -220,7 +219,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Alimentation")}
                             data-bs-toggle="modal"
@@ -234,12 +233,12 @@ export default function ConfigurateurGauche() {
                                 `${selections["8"].description}  
                         ${selections["8"].price} €`}
                             {selections["8"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("8")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -249,7 +248,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("SSD")}
                             data-bs-toggle="modal"
@@ -263,12 +262,12 @@ export default function ConfigurateurGauche() {
                                 `${selections["9"].description} 
                          ${selections["9"].price} €`}
                             {selections["9"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("9")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -278,7 +277,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0 " id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("HDD")}
                             data-bs-toggle="modal"
@@ -292,12 +291,12 @@ export default function ConfigurateurGauche() {
                                 `${selections["10"].description}  
                         ${selections["10"].price} €`}
                             {selections["10"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("10")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -307,7 +306,7 @@ export default function ConfigurateurGauche() {
             <div className="mt-5 " id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header mx-0" id="headingOne">
-                        <button className="accordion-button fs-4 btn-hover"
+                        <button className="btn btn-link accordion-button fs-4 btn-hover"
                             type="button"
                             onClick={() => handleButtonClick("Carte-Son")}
                             data-bs-toggle="modal"
@@ -321,12 +320,12 @@ export default function ConfigurateurGauche() {
                                 `${selections["11"].description}  
                         ${selections["11"].price} €`}
                             {selections["11"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("11")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>
@@ -350,12 +349,12 @@ export default function ConfigurateurGauche() {
                                 `${selections["3"].description}  
                         ${selections["3"].price} €`}
                             {selections["3"] && (
-                                <a
+                                <button
                                     className="btn btn-sm btn-danger ms-auto"
                                     onClick={() => handleSelectionClear("3")}
                                 >
                                     <i className="bi bi-x-square"></i>
-                                </a>
+                                </button>
                             )}
                         </div>
                     </h2>

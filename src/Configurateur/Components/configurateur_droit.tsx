@@ -7,7 +7,7 @@ export default function ConfigurateurDroit(props: { page: string, setPage: React
 
 
     return (
-        <div className="pc-backgound">
+        <div>
 
             <h3 className="text-center color2 pt-3">
                 GABLE-
